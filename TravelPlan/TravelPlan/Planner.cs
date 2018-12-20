@@ -17,6 +17,10 @@ namespace TravelPlan
         private string tel;
         private string image;
 
+        public Planner()
+        {
+        }
+
         public Planner(string name, float mapX, float mapY, string loc, string tel, string image)
         {
             this.name = name;

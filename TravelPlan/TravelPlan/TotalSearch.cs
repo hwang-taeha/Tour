@@ -508,16 +508,15 @@ namespace TravelPlan
 
         #endregion
 
-        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             foreach (var item in plannerList)
             {
-                if (item.Name== listView1.SelectedItems[0].Text)
+                if (item.Name == listView1.SelectedItems[0].Text)
                 {
                     Form1.TempPlan.Add(item);
                 }
             }
-            
         }
     }
 }
