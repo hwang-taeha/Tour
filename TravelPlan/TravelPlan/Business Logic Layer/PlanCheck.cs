@@ -119,9 +119,23 @@ namespace TravelPlan
             try
             {
                 Form1.DayPlan[cbTotalDays.SelectedIndex].Add(Form1.TempPlan[listView2.SelectedItems[0].Index]);
+                string imgStr = Form1.TempPlan[listView2.SelectedItems[0].Index].Image;
+
+                WebRequest req = WebRequest.Create(imgStr);
+                WebResponse resp = req.GetResponse();
+
+                Stream stream = resp.GetResponseStream();
+
+                Image img = Image.FromStream(stream);
+
+                Form1.ImageList[cbTotalDays.SelectedIndex].Images.Add(img);
+                Form1.ImageList[cbTotalDays.SelectedIndex].ImageSize = new Size(64, 64);
+
+
+
                 PlanList();
-                
-                
+
+
             }
             catch (ArgumentOutOfRangeException)
             {

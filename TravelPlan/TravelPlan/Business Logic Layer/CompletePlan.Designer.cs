@@ -28,32 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvPlan = new System.Windows.Forms.ListView();
-            this.cbDay = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // lvPlan
+            // flowLayoutPanel1
             // 
-            this.lvPlan.Location = new System.Drawing.Point(69, 67);
-            this.lvPlan.Name = "lvPlan";
-            this.lvPlan.Size = new System.Drawing.Size(443, 249);
-            this.lvPlan.TabIndex = 0;
-            this.lvPlan.UseCompatibleStateImageBehavior = false;
-            // 
-            // cbDay
-            // 
-            this.cbDay.FormattingEnabled = true;
-            this.cbDay.Location = new System.Drawing.Point(69, 32);
-            this.cbDay.Name = "cbDay";
-            this.cbDay.Size = new System.Drawing.Size(121, 20);
-            this.cbDay.TabIndex = 1;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(652, 338);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // CompletePlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cbDay);
-            this.Controls.Add(this.lvPlan);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Location = new System.Drawing.Point(115, 54);
             this.Name = "CompletePlan";
             this.Size = new System.Drawing.Size(652, 338);
@@ -64,7 +54,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lvPlan;
-        private System.Windows.Forms.ComboBox cbDay;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
