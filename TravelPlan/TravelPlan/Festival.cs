@@ -269,23 +269,35 @@ namespace TravelPlan
         {
             //Form1 f = new Form1();
             //MessageBox.Show(lvFestival.SelectedItems[0].SubItems[0].Text);
-            foreach (var item in lst)
+
+
+            if (lvFestival.SelectedItems.Count != 0)
             {
-                //MessageBox.Show(item.Title);
-                if (lvFestival.SelectedItems[0].SubItems[0].Text == item.Title)
+                foreach (var item in lst)
                 {
-                    name = item.Title;
-                    addr = item.Addr1;
-                    tel = item.Tel;
-                    image = item.Image;
+                    //MessageBox.Show(item.Title);
+                    if (lvFestival.SelectedItems[0].SubItems[0].Text == item.Title)
+                    {
+                        name = item.Title;
+                        addr = item.Addr1;
+                        tel = item.Tel;
+                        image = item.Image;
+                    }
+                }
+                try
+                {
+                    Form1.TempPlan.Add(new Planner(name, 0, 0, addr, tel, image));
+                    MessageBox.Show("찜목록에 추가되었습니다.");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("추가 실패");
                 }
             }
-            Form1.TempPlan.Add(new Planner(name, 0, 0, addr, tel, image));
-
-            //foreach (var item in Form1.TempPlan)
-            //{
-            //    MessageBox.Show(item.Loc); 
-            //}
+            else
+            {
+                MessageBox.Show("축제를 선택해주세요");
+            }
         }
     }
 }
