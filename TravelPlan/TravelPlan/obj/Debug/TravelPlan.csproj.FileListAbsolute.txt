@@ -95,6 +95,7 @@ C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\
 C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.Planning.resources
 C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.CompletePlan.resources
 C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.DaysPlan.resources
+<<<<<<< HEAD
 C:\Tour\TravelPlan\TravelPlan\bin\Debug\Planner.mdf
 C:\Tour\TravelPlan\TravelPlan\bin\Debug\Planner_log.ldf
 C:\Tour\TravelPlan\TravelPlan\bin\Debug\TravelPlan.exe.config
@@ -124,3 +125,34 @@ C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.csproj.CoreCompileInputs.cach
 C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.csproj.CopyComplete
 C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.exe
 C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.pdb
+=======
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\Planner.mdf
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\Planner_log.ldf
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\TravelPlan.exe.config
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\TravelPlan.exe
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\TravelPlan.pdb
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\HtmlAgilityPack.dll
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\Newtonsoft.Json.dll
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\HtmlAgilityPack.xml
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\bin\Debug\Newtonsoft.Json.xml
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.csprojAssemblyReference.cache
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.CompletePlan.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.DaysPlan.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Form1.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.Planning.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Festival.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.FestivalDetails.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.FoundRoot.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.FrmShowFestival.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Main.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Properties.Resources.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.TotalSearch.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Traffic.resources
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.csproj.GenerateResource.cache
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.csproj.CoreCompileInputs.cache
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.csproj.CopyComplete
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.exe
+C:\Users\GD4\Documents\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.pdb
+>>>>>>> master
