@@ -46,21 +46,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tboxIntro = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pboxMain = new System.Windows.Forms.PictureBox();
-            this.pboxSide1 = new System.Windows.Forms.PictureBox();
-            this.pboxSide2 = new System.Windows.Forms.PictureBox();
-            this.pboxSide3 = new System.Windows.Forms.PictureBox();
             this.pboxSide4 = new System.Windows.Forms.PictureBox();
+            this.pboxSide3 = new System.Windows.Forms.PictureBox();
+            this.pboxSide2 = new System.Windows.Forms.PictureBox();
+            this.pboxSide1 = new System.Windows.Forms.PictureBox();
+            this.pboxMain = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxFirstPage)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxSide1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxSide2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxSide3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxSide4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxSide3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxSide2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxSide1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMain)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -78,6 +78,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.tboxDesc);
             this.tabPage1.Controls.Add(this.lblTitle);
             this.tabPage1.Controls.Add(this.lblAddr);
@@ -97,10 +98,10 @@
             this.tabPage1.Size = new System.Drawing.Size(1132, 421);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "공통정보";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tboxDesc
             // 
+            this.tboxDesc.BackColor = System.Drawing.Color.White;
             this.tboxDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tboxDesc.Location = new System.Drawing.Point(9, 235);
             this.tboxDesc.Multiline = true;
@@ -209,6 +210,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.tboxIntro);
             this.tabPage2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
@@ -218,7 +220,6 @@
             this.tabPage2.Size = new System.Drawing.Size(1132, 421);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "소개정보";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -233,6 +234,7 @@
             // 
             // tboxIntro
             // 
+            this.tboxIntro.BackColor = System.Drawing.Color.White;
             this.tboxIntro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tboxIntro.Location = new System.Drawing.Point(3, 47);
             this.tboxIntro.Multiline = true;
@@ -244,6 +246,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.White;
             this.tabPage3.Controls.Add(this.pboxSide4);
             this.tabPage3.Controls.Add(this.pboxSide3);
             this.tabPage3.Controls.Add(this.pboxSide2);
@@ -256,46 +259,6 @@
             this.tabPage3.Size = new System.Drawing.Size(1132, 421);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "추가이미지";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // pboxMain
-            // 
-            this.pboxMain.Location = new System.Drawing.Point(8, 19);
-            this.pboxMain.Name = "pboxMain";
-            this.pboxMain.Size = new System.Drawing.Size(917, 390);
-            this.pboxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxMain.TabIndex = 1;
-            this.pboxMain.TabStop = false;
-            // 
-            // pboxSide1
-            // 
-            this.pboxSide1.Location = new System.Drawing.Point(931, 19);
-            this.pboxSide1.Name = "pboxSide1";
-            this.pboxSide1.Size = new System.Drawing.Size(198, 93);
-            this.pboxSide1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxSide1.TabIndex = 2;
-            this.pboxSide1.TabStop = false;
-            this.pboxSide1.Click += new System.EventHandler(this.pboxSide1_Click);
-            // 
-            // pboxSide2
-            // 
-            this.pboxSide2.Location = new System.Drawing.Point(931, 118);
-            this.pboxSide2.Name = "pboxSide2";
-            this.pboxSide2.Size = new System.Drawing.Size(198, 93);
-            this.pboxSide2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxSide2.TabIndex = 3;
-            this.pboxSide2.TabStop = false;
-            this.pboxSide2.Click += new System.EventHandler(this.pboxSide2_Click);
-            // 
-            // pboxSide3
-            // 
-            this.pboxSide3.Location = new System.Drawing.Point(931, 217);
-            this.pboxSide3.Name = "pboxSide3";
-            this.pboxSide3.Size = new System.Drawing.Size(198, 93);
-            this.pboxSide3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxSide3.TabIndex = 4;
-            this.pboxSide3.TabStop = false;
-            this.pboxSide3.Click += new System.EventHandler(this.pboxSide3_Click);
             // 
             // pboxSide4
             // 
@@ -307,12 +270,53 @@
             this.pboxSide4.TabStop = false;
             this.pboxSide4.Click += new System.EventHandler(this.pboxSide4_Click);
             // 
+            // pboxSide3
+            // 
+            this.pboxSide3.Location = new System.Drawing.Point(931, 217);
+            this.pboxSide3.Name = "pboxSide3";
+            this.pboxSide3.Size = new System.Drawing.Size(198, 93);
+            this.pboxSide3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxSide3.TabIndex = 4;
+            this.pboxSide3.TabStop = false;
+            this.pboxSide3.Click += new System.EventHandler(this.pboxSide3_Click);
+            // 
+            // pboxSide2
+            // 
+            this.pboxSide2.Location = new System.Drawing.Point(931, 118);
+            this.pboxSide2.Name = "pboxSide2";
+            this.pboxSide2.Size = new System.Drawing.Size(198, 93);
+            this.pboxSide2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxSide2.TabIndex = 3;
+            this.pboxSide2.TabStop = false;
+            this.pboxSide2.Click += new System.EventHandler(this.pboxSide2_Click);
+            // 
+            // pboxSide1
+            // 
+            this.pboxSide1.Location = new System.Drawing.Point(931, 19);
+            this.pboxSide1.Name = "pboxSide1";
+            this.pboxSide1.Size = new System.Drawing.Size(198, 93);
+            this.pboxSide1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxSide1.TabIndex = 2;
+            this.pboxSide1.TabStop = false;
+            this.pboxSide1.Click += new System.EventHandler(this.pboxSide1_Click);
+            // 
+            // pboxMain
+            // 
+            this.pboxMain.Location = new System.Drawing.Point(8, 19);
+            this.pboxMain.Name = "pboxMain";
+            this.pboxMain.Size = new System.Drawing.Size(917, 390);
+            this.pboxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxMain.TabIndex = 1;
+            this.pboxMain.TabStop = false;
+            // 
             // FestivalDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1140, 450);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FestivalDetails";
             this.Text = "축제 정보";
             this.Load += new System.EventHandler(this.FestivalDetails_Load);
@@ -323,11 +327,11 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pboxMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxSide1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxSide2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxSide3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxSide4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxSide3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxSide2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxSide1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMain)).EndInit();
             this.ResumeLayout(false);
 
         }
