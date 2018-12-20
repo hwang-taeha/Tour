@@ -1,296 +1,464 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using _181211projectTour;
 using Newtonsoft.Json.Linq;
-using System.Net;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Net;
+using System.Text;
+using System.Web;
+using System.Windows.Forms;
 
 namespace TravelPlan
 {
     public partial class TotalSearch : UserControl
     {
+        string areaCode = "";
+
+        List<Area> areaList = new List<Area>();
+        List<Area> sigunguList = new List<Area>();
+        List<Area> Cat1List = new List<Area>();
+        List<Area> Cat2List = new List<Area>();
+        List<Area> Cat3List = new List<Area>();
+
         public TotalSearch()
         {
             InitializeComponent();
+            cmbArea.Items.Add("지역 선택");
+            ParsingAreaSigungu("", cmbArea);
+            ParsingCat("", "", "");
+
+        }
+        private static JObject ReceiveWebSourse(string urlString)
+        {
+            string s = "";
+            var request = (HttpWebRequest)WebRequest.Create(urlString);
+            var response = (HttpWebResponse)request.GetResponse();
+            var statusCode = response.StatusCode.ToString();
+            if (statusCode == "OK")
+            {
+                var stream = response.GetResponseStream();
+                var sr = new StreamReader(stream, Encoding.UTF8);
+                s = sr.ReadToEnd().Replace("<b>", "").Replace("</b>", "");
+            }
+            JObject jObject = JObject.Parse(s);
+
+
+            return jObject;
         }
 
-        List<SearchResult> lst = new List<SearchResult>();
-        private int areaCode;
-        private int sigunguCode;
-        
+        /// <summary>
+        /// 지역코드를 받아서 지역과 해당 지역에 대해 웹에서 Parsing하여 찾아내는 method
+        /// </summary>
+        /// <param name="areaCode">지역코드 ""일때는 지역 찾기, not null 일때는 시군구 찾기</param>
+        /// <param name="combobox"></param>
+        public void ParsingAreaSigungu(string areaCode, ComboBox combobox)
+        {
+            string areaStr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?serviceKey=g0bFjmq9pmCLoJqvIGHUrWi%2FemZAn7PEDenAhZEGmwaL5DwzsEL%2FNV3gTWA8auCqFN2l7DzrKCuRMMD2FeSRSg%3D%3D&numOfRows=50&pageSize=50&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&_type=json&areaCode=" + areaCode + "&_type=json";
+
+
+            JObject jObject = ReceiveWebSourse(areaStr);
+
+            JArray jArray = JArray.Parse(jObject["response"]["body"]["items"]["item"].ToString());
+
+            if (areaCode != "")
+            {
+                sigunguList.Clear();
+            }
+            foreach (var item in jArray)
+            {
+                Area a = new Area();
+                a.Name = item["name"].ToString();
+                a.Code = item["code"].ToString();
+                if (areaCode == "")
+                {
+                    areaList.Add(a);
+                }
+                else if (areaCode != "")
+                {
+                    sigunguList.Add(a);
+                }
+            }
+            string[] comboName = new string[jArray.Count];
+            for (int i = 0; i < jArray.Count; i++)
+            {
+                comboName[i] = jArray[i]["name"].ToString();
+            }
+
+            combobox.Items.AddRange(comboName);
+        }
+        public void ParsingCat(string cat1, string cat2, string cat3)
+        {
+            string catUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/categoryCode?serviceKey=giAYw8bKervyOuF0mqTCfUrDqkwFOMG7qFBjOgPhuSjDDXMZ6HSNyiTZMyiO7JLZYcB6b9dlJc7nuSkZgXf9pw%3D%3D&numOfRows=10&pageSize=10&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&cat1=" + cat1 +
+                "&cat2=" + cat2 +
+                "&cat3=" + cat3 +
+                "&_type=json";
+
+            int i = 0;
+            JObject jObject = ReceiveWebSourse(catUrl);
+
+            if (cat1 == "" && cat2 == "" && cat3 == "")
+            {
+                Cat1List.Clear();
+                Cat2List.Clear();
+                Cat3List.Clear();
+                cmbCat1.Items.Clear();
+                cmbCat2.Items.Clear();
+                cmbCat3.Items.Clear();
+                cmbCat1.Items.Add("대분류");
+                cmbCat2.Items.Add("중분류");
+                cmbCat3.Items.Add("소분류");
+
+                i = 1;
+            }
+            if (cat1 != "" && cat2 == "" && cat3 == "")
+            {
+
+                Cat2List.Clear();
+                Cat3List.Clear();
+                cmbCat2.Items.Clear();
+                cmbCat3.Items.Clear();
+                cmbCat2.Items.Add("중분류");
+                cmbCat3.Items.Add("소분류");
+                i = 2;
+            }
+            if (cat1 != "" && cat2 != "" && cat3 == "")
+            {
+
+                Cat3List.Clear();
+                cmbCat3.Items.Clear();
+                cmbCat3.Items.Add("소분류");
+                i = 3;
+            }
+            try
+            {
+                JArray jArray = JArray.Parse(jObject["response"]["body"]["items"]["item"].ToString());
+                foreach (var item in jArray)
+                {
+                    Area a = new Area();
+                    a.Name = item["name"].ToString();
+                    a.Code = item["code"].ToString();
+                    switch (i)
+                    {
+                        case 1:
+                            Cat1List.Add(a);
+                            break;
+                        case 2:
+                            Cat2List.Add(a);
+                            break;
+                        case 3:
+                            Cat3List.Add(a);
+                            break;
+                    }
+                }
+                string[] comboName = new string[jArray.Count];
+                for (int j = 0; j < jArray.Count; j++)
+                {
+                    comboName[j] = jArray[j]["name"].ToString();
+                }
+                switch (i)
+                {
+                    case 1:
+                        cmbCat1.Items.AddRange(comboName);
+                        break;
+                    case 2:
+                        cmbCat2.Items.AddRange(comboName);
+                        break;
+                    case 3:
+                        cmbCat3.Items.AddRange(comboName);
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                Area a = new Area();
+
+
+                a.Name = jObject["response"]["body"]["items"]["item"]["name"].ToString();
+                a.Code = jObject["response"]["body"]["items"]["item"]["code"].ToString();
+                switch (i)
+                {
+                    case 1:
+                        Cat1List.Add(a);
+                        cmbCat1.Items.Add(a.Name);
+                        break;
+                    case 2:
+                        Cat2List.Add(a);
+                        cmbCat2.Items.Add(a.Name);
+                        break;
+                    case 3:
+                        Cat3List.Add(a);
+                        cmbCat3.Items.Add(a.Name);
+                        break;
+                }
+            }
+
+
+        }
+        #region 검색UI
+
+
+        private void rdoService_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCat.Visible = cmbCat1.Visible = cmbCat2.Visible = cmbCat3.Visible = true;
+            lblArea.Visible = cmbArea.Visible = cmbSigungu.Visible = false;
+            btnSearch.Location = new Point(374, 87);
+            txtSearch.Location = new Point(120, 89);
+            lblSearch.Location = new Point(85, 92);
+        }
+
+        private void rdoArea_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCat.Visible = cmbCat1.Visible = cmbCat2.Visible = cmbCat3.Visible = false;
+            lblArea.Visible = cmbArea.Visible = cmbSigungu.Visible = true;
+            btnSearch.Location = new Point(374, 87);
+            txtSearch.Location = new Point(120, 89);
+            lblSearch.Location = new Point(85, 92);
+            sigunguList.Clear();
+            cmbArea.Text = "지역 선택";
+            cmbSigungu.Text = "시군구 선택";
+        }
+
+        private void rdoTotal_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCat.Visible = cmbCat1.Visible = cmbCat2.Visible = cmbCat3.Visible = false;
+            lblArea.Visible = cmbArea.Visible = cmbSigungu.Visible = false;
+
+            btnSearch.Location = new Point(374, 58);
+            txtSearch.Location = new Point(120, 60);
+            lblSearch.Location = new Point(85, 63);
+        }
+        #endregion
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            gvTotalSearch.DataSource = "";
-            lst.Clear();
+            string keyword = HttpUtility.UrlEncode(txtSearch.Text).ToUpper();
 
-
-            string keyword = ConvertToHex(tboxSearch.Text);
-
-            var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=g0bFjmq9pmCLoJqvIGHUrWi%2FemZAn7PEDenAhZEGmwaL5DwzsEL%2FNV3gTWA8auCqFN2l7DzrKCuRMMD2FeSRSg%3D%3D&keyword=" + keyword + "&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&_type=json&arrange=A&numOfRows=12&pageNo=1";
-
-            GetJson(url);
-            Display(lst, url);
-        }
-
-        private string ConvertToHex(string inputtext)
-        {
-            byte[] utf16 = Encoding.Unicode.GetBytes(inputtext);
-            byte[] utf8 = Encoding.Convert(Encoding.Unicode, Encoding.UTF8, utf16);
-
-            string hexStr = "";
-            for (int i = 0; i < utf8.Length; i++)
-            {
-                var hexnum = Convert.ToString((int)utf8[i], 16);
-                hexStr += "%" + hexnum.ToUpper();
-            }
-            return hexStr;
-        }
-
-        private void Display(List<SearchResult> lst, string url)
-        {
-            var jObj = JObject.Parse(GetJson(url));
-            var itemsArr = JArray.Parse(jObj["response"]["body"]["items"]["item"].ToString());
-
-            string addr1 = "";
-            string addr2 = "";
-            int areacode = 0;
-            int booktour = 0;
+            string url = "";
+            string area = "";
+            string sigungu = "";
             string cat1 = "";
             string cat2 = "";
             string cat3 = "";
-            int contentid = 0;
-            int contenttypeid = 0;
-            string createdtime = null;
-            string firstimage = "";
-            string firstimage2 = "";
-            string mapx = "";
-            string mapy = "";
-            int mlevel = 0;
-            string modifiedtime = null;
-            int readcount = 0;
-            int sigungucode = 0;
-            string tel = "";
-            string title = "";
-            int zipcode = 0;
-
-            foreach (JObject item in itemsArr)
+            string pageNo = "";
+            string code = "";
+            if (keyword == "")
             {
-                if (item.ContainsKey("title"))
-                {
-                    title = item["title"].ToString();
-                }
-                else if (item.ContainsKey("title") == false)
-                {
-                    title = "";
-                }
-                if (item.ContainsKey("addr1"))
-                {
-                    addr1 = item["addr1"].ToString();
-                }
-                else if (item.ContainsKey("addr1") == false)
-                {
-                    addr1 = "";
-                }
-                if (item.ContainsKey("addr2"))
-                {
-                    addr2 = item["addr2"].ToString();
-                }
-                else if (item.ContainsKey("addr2") == false)
-                {
-                    addr2 = "";
-                }
-                if (item.ContainsKey("areacode"))
-                {
-                    areacode = Int32.Parse(item["areacode"].ToString());
-                }
-                else if (item.ContainsKey("areacode") == false)
-                {
-                    areacode = 0;
-                }
-                if (item.ContainsKey("booktour"))
-                {
-                    booktour = Int32.Parse(item["booktour"].ToString());
-                }
-                else if (item.ContainsKey("booktour") == false)
-                {
-                    booktour = 0;
-                }
-                if (item.ContainsKey("cat1"))
-                {
-                    cat1 = item["cat1"].ToString();
-                }
-                else if (item.ContainsKey("cat1") == false)
-                {
-                    cat1 = "";
-                }
-                if (item.ContainsKey("cat2"))
-                {
-                    cat2 = item["cat2"].ToString();
-                }
-                else if (item.ContainsKey("cat2") == false)
-                {
-                    cat2 = "";
-                }
-                if (item.ContainsKey("cat3"))
-                {
-                    cat3 = item["cat3"].ToString();
-                }
-                else if (item.ContainsKey("cat3") == false)
-                {
-                    cat3 = "";
-                }
-                if (item.ContainsKey("contentid"))
-                {
-                    contentid = Int32.Parse(item["contentid"].ToString());
-                }
-                else if (item.ContainsKey("contentid") == false)
-                {
-                    contentid = 0;
-                }
-                if (item.ContainsKey("contenttypeid"))
-                {
-                    contenttypeid = Int32.Parse(item["contenttypeid"].ToString());
-                }
-                else if (item.ContainsKey("contenttypeid") == false)
-                {
-                    contenttypeid = 0;
-                }
-                if (item.ContainsKey("createdtime"))
-                {
-                    createdtime = item["createdtime"].ToString();
-                }
-                else if (item.ContainsKey("createdtime") == false)
-                {
-                    createdtime = null;
-                }
-                if (item.ContainsKey("firstimage"))
-                {
-                    firstimage = item["firstimage"].ToString();
-                }
-                else if (item.ContainsKey("firstimage") == false)
-                {
-                    firstimage = "";
-                }
-                if (item.ContainsKey("firstimage2"))
-                {
-                    firstimage2 = item["firstimage2"].ToString();
-                }
-                else if (item.ContainsKey("firstimage2") == false)
-                {
-                    firstimage2 = "";
-                }
-                if (item.ContainsKey("mapx"))
-                {
-                    mapx = item["mapx"].ToString();
-                }
-                else if (item.ContainsKey("mapx") == false)
-                {
-                    mapx = "";
-                }
-                if (item.ContainsKey("mapy"))
-                {
-                    mapy = item["mapy"].ToString();
-                }
-                else if (item.ContainsKey("mapy") == false)
-                {
-                    mapy = "";
-                }
-                if (item.ContainsKey("mlevel"))
-                {
-                    mlevel = Int32.Parse(item["mlevel"].ToString());
-                }
-                else if (item.ContainsKey("mlevel") == false)
-                {
-                    mlevel = 0;
-                }
-                if (item.ContainsKey("modifiedtime"))
-                {
-                    modifiedtime = item["modifiedtime"].ToString();
-                }
-                else if (item.ContainsKey("modifiedtime") == false)
-                {
-                    modifiedtime = null;
-                }
-                if (item.ContainsKey("readcount"))
-                {
-                    readcount = Int32.Parse(item["readcount"].ToString());
-                }
-                else if (item.ContainsKey("readcount") == false)
-                {
-                    readcount = 0;
-                }
-                if (item.ContainsKey("sigungucode"))
-                {
-                    sigungucode = Int32.Parse(item["sigungucode"].ToString());
-                }
-                else if (item.ContainsKey("sigungucode") == false)
-                {
-                    sigungucode = 0;
-                }
-                if (item.ContainsKey("tel"))
-                {
-                    tel = item["tel"].ToString();
-                }
-                else if (item.ContainsKey("tel") == false)
-                {
-                    tel = "";
-                }
-                if (item.ContainsKey("title"))
-                {
-                    title = item["title"].ToString();
-                }
-                else if (item.ContainsKey("title") == false)
-                {
-                    title = "";
-                }
-                if (item.ContainsKey("zipcode"))
-                {
-                    zipcode = Int32.Parse(item["zipcode"].ToString());
-                }
-                else if (item.ContainsKey("zipcode") == false)
-                {
-                    zipcode = 0;
-                }
-                lst.Add(new SearchResult(title, addr1, addr2, areacode, booktour, cat1, cat2, cat3, contentid, contenttypeid, createdtime, firstimage, firstimage2, mapx, mapy, mlevel, modifiedtime, readcount, sigungucode, tel, zipcode));
+                code = "areaBasedList?";
             }
-            gvTotalSearch.DataSource = lst;
-        }
-
-
-        private string GetJson(string url)
-        {
-            string json = "";
-            HttpWebRequest req = WebRequest.Create(url) as HttpWebRequest;
-            HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
-
-            var statusCode = resp.StatusCode.ToString();
-
-            if (statusCode == "OK")
+            else
             {
-                Stream stream = resp.GetResponseStream();
-                StreamReader sr = new StreamReader(stream, Encoding.UTF8);
-                json = sr.ReadToEnd().Replace("<b>", "").Replace("</b>", "").Replace("|", ",");
+                code = "searchKeyword?";
+            }
+            #region 지역선택 시 검색
+            if (rdoArea.Checked == true)
+            {
+
+                if (cmbArea.Text != "지역 선택")
+                {
+                    foreach (var item in areaList)
+                    {
+                        if (item.Name == cmbArea.Text)
+                        {
+                            area = item.Code + "";
+                        }
+                    }
+                }
+                if (cmbSigungu.Text != "시군구 선택")
+                {
+                    foreach (var item in sigunguList)
+                    {
+                        if (item.Name == cmbSigungu.Text)
+                        {
+                            sigungu = item.Code + "";
+                        }
+                    }
+                }
 
             }
-            textBox1.Text = json;
-            return json;
+            #endregion
+
+            #region 서비스분류 선택시 검색
+            if (rdoService.Checked == true)
+            {
+                if (cmbCat1.Text != "대분류")
+                {
+                    foreach (var item in Cat1List)
+                    {
+                        if (item.Name == cmbCat1.Text)
+                        {
+                            cat1 = item.Code + "";
+                        }
+                    }
+                }
+                if (cmbCat2.Text != "중분류")
+                {
+                    foreach (var item in Cat2List)
+                    {
+                        if (item.Name == cmbCat2.Text)
+                        {
+                            cat2 = item.Code + "";
+                        }
+                    }
+                }
+                if (cmbCat3.Text != "소분류")
+                {
+                    foreach (var item in Cat3List)
+                    {
+                        if (item.Name == cmbCat3.Text)
+                        {
+                            cat3 = item.Code + "";
+                        }
+                    }
+                }
+
+            }
+            #endregion
+
+
+            url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/" + code + "serviceKey=" +
+                "giAYw8bKervyOuF0mqTCfUrDqkwFOMG7qFBjOgPhuSjDDXMZ6HSNyiTZMyiO7JLZYcB6b9dlJc7nuSkZgXf9pw%3D%3D&keyword=" + keyword +
+                "&areaCode=" + area + "&sigunguCode=" + sigungu + "&cat1=" + cat1 + "&cat2=" + cat2 + "&cat3=" + cat3 + "&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=10&pageNo=1&startPage=1&pageSize=10" + pageNo + "&_type=json";
+
+            JObject jObject = ReceiveWebSourse(url);
+
+            JArray jArray_ListViewUpload = JArray.Parse(jObject["response"]["body"]["items"]["item"].ToString());
+            listView1.Clear();
+            //listView1.LargeImageList.Images.Clear();
+            Stream stream = Stream.Null;
+            ImageList imgList = new ImageList(); ;
+            foreach (var item in jArray_ListViewUpload)
+            {
+
+                var request = (HttpWebRequest)WebRequest.Create(item["firstimage"].ToString());
+                var response = (HttpWebResponse)request.GetResponse();
+                var statusCode = response.StatusCode.ToString();
+                if (statusCode == "OK")
+                {
+                    stream = response.GetResponseStream();
+                }
+                Image i = Image.FromStream(stream);
+                imgList.Images.Add(item["title"].ToString(), i);
+                listView1.Items.Add(item["title"].ToString(), item["title"].ToString());
+                //, float.Parse(item["mapx"].ToString()), float.Parse(item["mapy"].ToString()), item["addr1"].ToString(), item["tel"].ToString(), 
+            }
+            listView1.LargeImageList = imgList;
+
+
+
+
+
+            PlanList();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PlanList()
         {
-            FrmShowFestival sf = new FrmShowFestival();
-            sf.Show();
+
+
+
         }
 
-        private void btnSearch_Click_1(object sender, EventArgs e)
+
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+        #region 콤보박스 지역선택
+        private void cmbArea_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cmbSigungu.Items.Clear();
+            cmbSigungu.Items.Add("시군구 선택");
+            areaCode = "";
+            cmbSigungu.Text = "시군구 선택";
+            if (cmbArea.Text != "지역 선택")
+            {
+                foreach (var item in areaList)
+                {
+                    if (item.Name == cmbArea.Text)
+                    {
+                        if (cmbArea.Text != "세종특별자치시")
+                        {
+                            areaCode = item.Code + "";
+                            break;
+                        }
+                        else if (cmbArea.Text == "세종특별자치시")
+                        {
+                            areaCode = "";
+                            cmbSigungu.Items.Add("세종특별자치시");
+                            return;
+                        }
+                    }
+                }
+                ParsingAreaSigungu(areaCode, cmbSigungu);
+            }
+        }
+        #endregion
+
+        #region 대분류 선택
+        private void cmbCat1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbCat1.SelectedItem.ToString() == "대분류")
+            {
+                ParsingCat("", "", "");
+                cmbCat1.Text = "대분류";
+                cmbCat2.Text = "중분류";
+                cmbCat3.Text = "소분류";
+            }
+            else
+            {
+                foreach (var item in Cat1List)
+                {
+                    if (item.Name == cmbCat1.SelectedItem.ToString())
+                    {
+                        ParsingCat(item.Code, "", "");
+                        cmbCat2.Text = "중분류";
+                        cmbCat3.Text = "소분류";
+                        return;
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region 중분류 선택
+        private void cmbCat2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCat2.SelectedItem.ToString() == "중분류")
+            {
+
+                foreach (var item in Cat1List)
+                {
+                    if (item.Name == cmbCat1.Text)
+                    {
+                        ParsingCat(item.Code, "", "");
+                        cmbCat2.Text = "중분류";
+                        cmbCat3.Text = "소분류";
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in Cat1List)
+                {
+                    if (item.Name == cmbCat1.SelectedItem.ToString())
+                    {
+                        foreach (var item1 in Cat2List)
+                        {
+                            if (item1.Name == cmbCat2.SelectedItem.ToString())
+                            {
+                                ParsingCat(item.Code, item1.Code, "");
+                                cmbCat3.Text = "소분류";
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
+
     }
 }

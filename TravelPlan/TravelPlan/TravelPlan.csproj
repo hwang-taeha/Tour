@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Area.cs" />
     <Compile Include="Business Logic Layer\CompletePlan.cs">
       <SubType>UserControl</SubType>
     </Compile>
