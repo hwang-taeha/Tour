@@ -1,18 +1,23 @@
-﻿using _181211projectTour;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
-using System.IO;
-using System.Net;
+using System.Data;
+using System.Linq;
 using System.Text;
-using System.Web;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using System.IO;
+using _181211projectTour;
+using System.Web;
 
 namespace TravelPlan
 {
     public partial class TotalSearch : UserControl
     {
+
         string areaCode = "";
 
         List<Area> areaList = new List<Area>();
@@ -459,6 +464,7 @@ namespace TravelPlan
             }
         }
         #endregion
+
 
     }
 }
