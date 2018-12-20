@@ -25,7 +25,10 @@ namespace TravelPlan
         List<Area> Cat1List = new List<Area>();
         List<Area> Cat2List = new List<Area>();
         List<Area> Cat3List = new List<Area>();
-
+        Planner planner;
+        List<Planner> plannerList = new List<Planner>();
+        
+        
         public TotalSearch()
         {
             InitializeComponent();
@@ -338,9 +341,11 @@ namespace TravelPlan
             listView1.Clear();
             //listView1.LargeImageList.Images.Clear();
             Stream stream = Stream.Null;
+            Image i;
             ImageList imgList = new ImageList();
             imgList.ImageSize = new Size(150, 100);
             imgList.ColorDepth = ColorDepth.Depth32Bit;
+            plannerList.Clear();
             foreach (var item in jArray_ListViewUpload)
             {
                 try
@@ -352,7 +357,7 @@ namespace TravelPlan
                     {
                         stream = response.GetResponseStream();
                     }
-                    Image i = Image.FromStream(stream);
+                    i = Image.FromStream(stream);
                     imgList.Images.Add(item["title"].ToString(), i);
                 }
                 catch (Exception)
@@ -364,20 +369,27 @@ namespace TravelPlan
                     {
                         stream = response.GetResponseStream();
                     }
-                    Image i = Image.FromStream(stream);
+                    i = Image.FromStream(stream);
                     imgList.Images.Add(item["title"].ToString(), i);
 
                 }
                 listView1.LargeImageList = imgList;
-
+                planner = new Planner();
+                planner.Name = (item["title"] == null) ? "제목없음" : item["title"].ToString();
+                planner.MapX = (item["mapx"] == null) ? 0f : float.Parse(item["mapx"].ToString());
+                planner.MapY = (item["mapy"] == null) ? 0f : float.Parse(item["mapy"].ToString());
+                planner.Loc = (item["addr1"] == null) ? "주소없음" : item["addr1"].ToString();
+                planner.Tel = (item["tel"] == null) ? "번호없음" : item["tel"].ToString();
+                planner.Image = (item["firstimage"] == null) ? "http://api.visitkorea.or.kr/static/images/common/noImage.gif" : item["firstimage"].ToString();
                 var lvi = new ListViewItem(new string[]
                 {
-                    (item["title"]==null)?"제목없음": item["title"].ToString(),
-                    (item["mapx"]==null) ? "위치x없음" : item["mapx"].ToString(),
-                    (item["mapy"]==null) ? "위치y없음" : item["mapy"].ToString(),
-                    (item["addr1"]==null) ? "주소없음" : item["addr1"].ToString(),
-                    (item["tel"]==null) ? "번호없음" : item["tel"].ToString()
+                   planner.Name,
+                   planner.MapX+"",
+                   planner.MapY+"",
+                   planner.Loc,
+                   planner.Tel
                 });
+                plannerList.Add(planner);
                 lvi.ImageKey = item["title"].ToString();
                 listView1.Items.Add(lvi);
             }
@@ -493,8 +505,19 @@ namespace TravelPlan
                 }
             }
         }
+
         #endregion
 
-
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            foreach (var item in plannerList)
+            {
+                if (item.Name== listView1.SelectedItems[0].Text)
+                {
+                    Form1.TempPlan.Add(item);
+                }
+            }
+            
+        }
     }
 }

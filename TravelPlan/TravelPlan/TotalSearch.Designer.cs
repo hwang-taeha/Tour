@@ -207,10 +207,11 @@
             this.listView1.Size = new System.Drawing.Size(991, 287);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(516, 49);
+            this.button1.Location = new System.Drawing.Point(868, 49);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 49);
             this.button1.TabIndex = 18;
