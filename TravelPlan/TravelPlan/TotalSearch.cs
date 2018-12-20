@@ -207,18 +207,18 @@ namespace TravelPlan
         {
             lblCat.Visible = cmbCat1.Visible = cmbCat2.Visible = cmbCat3.Visible = true;
             lblArea.Visible = cmbArea.Visible = cmbSigungu.Visible = false;
-            btnSearch.Location = new Point(374, 87);
-            txtSearch.Location = new Point(120, 89);
-            lblSearch.Location = new Point(85, 92);
+            btnSearch.Location = new Point(374, 73);
+            txtSearch.Location = new Point(120, 75);
+            lblSearch.Location = new Point(85, 78);
         }
 
         private void rdoArea_CheckedChanged(object sender, EventArgs e)
         {
             lblCat.Visible = cmbCat1.Visible = cmbCat2.Visible = cmbCat3.Visible = false;
             lblArea.Visible = cmbArea.Visible = cmbSigungu.Visible = true;
-            btnSearch.Location = new Point(374, 87);
-            txtSearch.Location = new Point(120, 89);
-            lblSearch.Location = new Point(85, 92);
+            btnSearch.Location = new Point(374, 73);
+            txtSearch.Location = new Point(120, 75);
+            lblSearch.Location = new Point(85, 78);
             sigunguList.Clear();
             cmbArea.Text = "지역 선택";
             cmbSigungu.Text = "시군구 선택";
@@ -229,9 +229,9 @@ namespace TravelPlan
             lblCat.Visible = cmbCat1.Visible = cmbCat2.Visible = cmbCat3.Visible = false;
             lblArea.Visible = cmbArea.Visible = cmbSigungu.Visible = false;
 
-            btnSearch.Location = new Point(374, 58);
-            txtSearch.Location = new Point(120, 60);
-            lblSearch.Location = new Point(85, 63);
+            btnSearch.Location = new Point(374, 44);
+            txtSearch.Location = new Point(120, 46);
+            lblSearch.Location = new Point(85, 49);
         }
         #endregion
 
@@ -326,43 +326,73 @@ namespace TravelPlan
                 "&areaCode=" + area + "&sigunguCode=" + sigungu + "&cat1=" + cat1 + "&cat2=" + cat2 + "&cat3=" + cat3 + "&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=10&pageNo=1&startPage=1&pageSize=10" + pageNo + "&_type=json";
 
             JObject jObject = ReceiveWebSourse(url);
-
-            JArray jArray_ListViewUpload = JArray.Parse(jObject["response"]["body"]["items"]["item"].ToString());
+            JArray jArray_ListViewUpload = new JArray();
+            try
+            {
+                jArray_ListViewUpload = JArray.Parse(jObject["response"]["body"]["items"]["item"].ToString());
+            }
+            catch (Exception)
+            {
+                jArray_ListViewUpload = JArray.Parse("["+jObject["response"]["body"]["items"]["item"].ToString()+"]");
+            }
             listView1.Clear();
             //listView1.LargeImageList.Images.Clear();
             Stream stream = Stream.Null;
-            ImageList imgList = new ImageList(); ;
+            ImageList imgList = new ImageList();
+            imgList.ImageSize = new Size(150, 100);
+            imgList.ColorDepth = ColorDepth.Depth32Bit;
             foreach (var item in jArray_ListViewUpload)
             {
-
-                var request = (HttpWebRequest)WebRequest.Create(item["firstimage"].ToString());
-                var response = (HttpWebResponse)request.GetResponse();
-                var statusCode = response.StatusCode.ToString();
-                if (statusCode == "OK")
+                try
                 {
-                    stream = response.GetResponseStream();
+                    var request = (HttpWebRequest)WebRequest.Create(item["firstimage"].ToString());
+                    var response = (HttpWebResponse)request.GetResponse();
+                    var statusCode = response.StatusCode.ToString();
+                    if (statusCode == "OK")
+                    {
+                        stream = response.GetResponseStream();
+                    }
+                    Image i = Image.FromStream(stream);
+                    imgList.Images.Add(item["title"].ToString(), i);
                 }
-                Image i = Image.FromStream(stream);
-                imgList.Images.Add(item["title"].ToString(), i);
-                listView1.Items.Add(item["title"].ToString(), item["title"].ToString());
-                //, float.Parse(item["mapx"].ToString()), float.Parse(item["mapy"].ToString()), item["addr1"].ToString(), item["tel"].ToString(), 
+                catch (Exception)
+                {
+                    var request = (HttpWebRequest)WebRequest.Create("http://api.visitkorea.or.kr/static/images/common/noImage.gif");
+                    var response = (HttpWebResponse)request.GetResponse();
+                    var statusCode = response.StatusCode.ToString();
+                    if (statusCode == "OK")
+                    {
+                        stream = response.GetResponseStream();
+                    }
+                    Image i = Image.FromStream(stream);
+                    imgList.Images.Add(item["title"].ToString(), i);
+
+                }
+                listView1.LargeImageList = imgList;
+
+                var lvi = new ListViewItem(new string[]
+                {
+                    (item["title"]==null)?"제목없음": item["title"].ToString(),
+                    (item["mapx"]==null) ? "위치x없음" : item["mapx"].ToString(),
+                    (item["mapy"]==null) ? "위치y없음" : item["mapy"].ToString(),
+                    (item["addr1"]==null) ? "주소없음" : item["addr1"].ToString(),
+                    (item["tel"]==null) ? "번호없음" : item["tel"].ToString()
+                });
+                lvi.ImageKey = item["title"].ToString();
+                listView1.Items.Add(lvi);
             }
-            listView1.LargeImageList = imgList;
-
-
-
-
-
-            PlanList();
-
-        }
-
-        private void PlanList()
-        {
-
+            
+            listView1.View = View.LargeIcon;
+            int j = 0;
+            //foreach (ListViewItem item in listView1.Items)
+            //{
+            //    item.Imagekey = j;
+            //    j++;
+            //}
 
 
         }
+
 
 
 
