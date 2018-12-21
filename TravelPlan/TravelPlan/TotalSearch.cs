@@ -19,7 +19,7 @@ namespace TravelPlan
     {
 
         string areaCode = "";
-
+        string moveUrl = "";
         List<Area> areaList = new List<Area>();
         List<Area> sigunguList = new List<Area>();
         List<Area> Cat1List = new List<Area>();
@@ -326,17 +326,48 @@ namespace TravelPlan
 
             url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/" + code + "serviceKey=" +
                 "giAYw8bKervyOuF0mqTCfUrDqkwFOMG7qFBjOgPhuSjDDXMZ6HSNyiTZMyiO7JLZYcB6b9dlJc7nuSkZgXf9pw%3D%3D&keyword=" + keyword +
-                "&areaCode=" + area + "&sigunguCode=" + sigungu + "&cat1=" + cat1 + "&cat2=" + cat2 + "&cat3=" + cat3 + "&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=10&pageNo=1&startPage=1&pageSize=10" + pageNo + "&_type=json";
+                "&areaCode=" + area + "&sigunguCode=" + sigungu + "&cat1=" + cat1 + "&cat2=" + cat2 + "&cat3=" + cat3 + "&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=10&pageNo=" + pageNo + "&startPage=1&pageSize=10&_type=json";
 
+            moveUrl = url;
+            ListViewShow(url);
+
+        }
+
+        private void ListViewShow(string url)
+        {
             JObject jObject = ReceiveWebSourse(url);
+            txturl.Text = url;
+            int LastPage = Int32.Parse(jObject["response"]["body"]["totalCount"].ToString());
+            if (LastPage % 10 == 0)
+            {
+                LastPage = LastPage / 10;
+            }
+            else
+            {
+                LastPage = LastPage / 10 + 1;
+            }
+            lblLastPage.Text = LastPage + "";
             JArray jArray_ListViewUpload = new JArray();
+
             try
             {
                 jArray_ListViewUpload = JArray.Parse(jObject["response"]["body"]["items"]["item"].ToString());
             }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("0개 검색되었습니다.");
+            }
             catch (Exception)
             {
-                jArray_ListViewUpload = JArray.Parse("["+jObject["response"]["body"]["items"]["item"].ToString()+"]");
+                jArray_ListViewUpload = JArray.Parse("[" + jObject["response"]["body"]["items"]["item"].ToString() + "]");
+            }
+            if (jArray_ListViewUpload.Count > 0)
+            {
+                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible = true;
+            }
+            else
+            {
+                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible = false;
             }
             listView1.Clear();
             //listView1.LargeImageList.Images.Clear();
@@ -393,7 +424,7 @@ namespace TravelPlan
                 lvi.ImageKey = item["title"].ToString();
                 listView1.Items.Add(lvi);
             }
-            
+
             listView1.View = View.LargeIcon;
             int j = 0;
             //foreach (ListViewItem item in listView1.Items)
@@ -401,12 +432,7 @@ namespace TravelPlan
             //    item.Imagekey = j;
             //    j++;
             //}
-
-
         }
-
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -510,11 +536,20 @@ namespace TravelPlan
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             foreach (var item in plannerList)
             {
                 if (item.Name == listView1.SelectedItems[0].Text)
                 {
-                    Form1.TempPlan.Add(item);
+                    if (!Form1.TempPlan.Contains(item))
+                    {
+                        Form1.TempPlan.Add(item);
+                    }
+                    else
+                    {
+                        MessageBox.Show("이미 추가되었습니다!");
+                    }
+                    
                 }
             }
         }
