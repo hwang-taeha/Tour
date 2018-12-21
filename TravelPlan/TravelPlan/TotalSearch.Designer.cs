@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbCat1 = new System.Windows.Forms.ComboBox();
             this.cmbCat2 = new System.Windows.Forms.ComboBox();
             this.cmbCat3 = new System.Windows.Forms.ComboBox();
@@ -45,12 +46,13 @@
             this.rdoTotal = new System.Windows.Forms.RadioButton();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblNowPage = new System.Windows.Forms.Label();
             this.lblSlush = new System.Windows.Forms.Label();
             this.lblLastPage = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrev = new System.Windows.Forms.Button();
             this.txturl = new System.Windows.Forms.TextBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lblNowPage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cmbCat1
@@ -228,14 +230,18 @@
             // 
             this.listView1.BackColor = System.Drawing.SystemColors.Window;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView1.ForeColor = System.Drawing.Color.Black;
             this.listView1.Location = new System.Drawing.Point(24, 104);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
+            this.listView1.ShowItemToolTips = true;
             this.listView1.Size = new System.Drawing.Size(991, 287);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemMouseHover += new System.Windows.Forms.ListViewItemMouseHoverEventHandler(this.listView1_ItemMouseHover);
+            this.listView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseMove);
             // 
             // button1
             // 
@@ -251,18 +257,6 @@
             this.button1.Text = "담기";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblNowPage
-            // 
-            this.lblNowPage.AutoSize = true;
-            this.lblNowPage.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblNowPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
-            this.lblNowPage.Location = new System.Drawing.Point(646, 62);
-            this.lblNowPage.Name = "lblNowPage";
-            this.lblNowPage.Size = new System.Drawing.Size(55, 21);
-            this.lblNowPage.TabIndex = 19;
-            this.lblNowPage.Text = "label2";
-            this.lblNowPage.Visible = false;
             // 
             // lblSlush
             // 
@@ -288,49 +282,73 @@
             this.lblLastPage.Text = "label4";
             this.lblLastPage.Visible = false;
             // 
-            // button3
+            // btnNext
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(791, 55);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 36);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "이전";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(791, 55);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 36);
+            this.btnNext.TabIndex = 23;
+            this.btnNext.Text = "다음";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Visible = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // button2
+            // btnPrev
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(565, 55);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 36);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "이전";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnPrev.ForeColor = System.Drawing.Color.White;
+            this.btnPrev.Location = new System.Drawing.Point(565, 55);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(75, 36);
+            this.btnPrev.TabIndex = 24;
+            this.btnPrev.Text = "이전";
+            this.btnPrev.UseVisualStyleBackColor = false;
+            this.btnPrev.Visible = false;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // txturl
             // 
             this.txturl.Location = new System.Drawing.Point(555, 18);
             this.txturl.Name = "txturl";
-            this.txturl.Size = new System.Drawing.Size(337, 21);
+            this.txturl.Size = new System.Drawing.Size(460, 21);
             this.txturl.TabIndex = 25;
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutomaticDelay = 0;
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip_Popup);
+            // 
+            // lblNowPage
+            // 
+            this.lblNowPage.BackColor = System.Drawing.SystemColors.Window;
+            this.lblNowPage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lblNowPage.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblNowPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
+            this.lblNowPage.Location = new System.Drawing.Point(646, 62);
+            this.lblNowPage.Name = "lblNowPage";
+            this.lblNowPage.Size = new System.Drawing.Size(78, 22);
+            this.lblNowPage.TabIndex = 26;
+            this.lblNowPage.Text = "label2";
+            this.lblNowPage.Visible = false;
+            this.lblNowPage.Enter += new System.EventHandler(this.lblNowPage_Enter);
             // 
             // TotalSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txturl);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnPrev);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblLastPage);
             this.Controls.Add(this.lblSlush);
-            this.Controls.Add(this.lblNowPage);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.rdoTotal);
@@ -348,6 +366,7 @@
             this.Controls.Add(this.cmbCat3);
             this.Controls.Add(this.cmbCat2);
             this.Controls.Add(this.cmbSigungu);
+            this.Controls.Add(this.lblNowPage);
             this.Name = "TotalSearch";
             this.Size = new System.Drawing.Size(1061, 450);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -375,11 +394,12 @@
         private System.Windows.Forms.RadioButton rdoTotal;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblNowPage;
         private System.Windows.Forms.Label lblSlush;
         private System.Windows.Forms.Label lblLastPage;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.TextBox txturl;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.TextBox lblNowPage;
     }
 }

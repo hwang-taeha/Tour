@@ -19,6 +19,7 @@ namespace TravelPlan
     {
 
         string areaCode = "";
+        string pageNo = "";
         string moveUrl = "";
         List<Area> areaList = new List<Area>();
         List<Area> sigunguList = new List<Area>();
@@ -248,8 +249,8 @@ namespace TravelPlan
             string cat1 = "";
             string cat2 = "";
             string cat3 = "";
-            string pageNo = "";
             string code = "";
+            pageNo = "1";
             if (keyword == "")
             {
                 code = "areaBasedList?";
@@ -363,11 +364,12 @@ namespace TravelPlan
             }
             if (jArray_ListViewUpload.Count > 0)
             {
-                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible = true;
+                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible =btnPrev.Visible=btnNext.Visible= true;
+                lblNowPage.Text = pageNo;
             }
             else
             {
-                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible = false;
+                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible = btnPrev.Visible = btnNext.Visible = false;
             }
             listView1.Clear();
             //listView1.LargeImageList.Images.Clear();
@@ -551,6 +553,81 @@ namespace TravelPlan
                     }
                     
                 }
+            }
+        }
+
+        private void toolTip_Popup(object sender, PopupEventArgs e)
+        {
+            
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if (Int32.Parse(pageNo)>1)
+            {
+                int i = Int32.Parse(pageNo) - 1;
+                string moveUrl_Old = "&pageNo=" + pageNo;
+                string moveUrl_New = "&pageNo=" + i;
+                pageNo = i+"";
+                moveUrl = moveUrl.Replace(moveUrl_Old, moveUrl_New);
+                txturl.Text = moveUrl;
+                ListViewShow(moveUrl);
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (Int32.Parse(pageNo)<Int32.Parse(lblLastPage.Text))
+            {
+                int i = Int32.Parse(pageNo) + 1;
+                string moveUrl_Old = "&pageNo=" + pageNo;
+                string moveUrl_New = "&pageNo=" + i;
+                pageNo = i + "";
+                moveUrl = moveUrl.Replace(moveUrl_Old, moveUrl_New);
+                txturl.Text= moveUrl;
+                ListViewShow(moveUrl);
+            }
+        }
+        int index;
+        Point p = new Point();
+        private void listView1_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
+        {
+            p = e.Item.Position;
+            index = e.Item.Index;
+                
+            
+
+        }
+        int x;
+        int y;
+        private void listView1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            x = e.Location.X;
+            y = e.Location.Y;
+            txturl.Text = "포인트 x : " + x + ", " + p.X + ", " + (p.X + 150) + "포인트 y : " + y + ", " + p.Y + ", " + (p.Y + 100);
+            if ((p.X < x && x<p.X+150 && p.Y < y && y< p.Y+100))
+            {
+                toolTip.Show("주소 : " + plannerList[index].Loc + "\n전화번호 : " + plannerList[index].Tel, listView1, new Point(x, y));
+            }
+            else
+            {
+                toolTip.RemoveAll();
+            }
+        }
+
+        private void lblNowPage_Enter(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+            if (Int32.Parse(lblNowPage.Text) > 1 && Int32.Parse(lblNowPage.Text)< Int32.Parse(lblLastPage.Text))
+            {
+                int i = Int32.Parse(lblNowPage.Text);
+                string moveUrl_Old = "&pageNo=" + pageNo;
+                string moveUrl_New = "&pageNo=" + i;
+                pageNo = i + "";
+                moveUrl = moveUrl.Replace(moveUrl_Old, moveUrl_New);
+                txturl.Text = moveUrl;
+                ListViewShow(moveUrl);
             }
         }
     }
