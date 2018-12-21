@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.foundRoot1 = new TravelPlan.FoundRoute();
             this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.main1 = new TravelPlan.Main();
             this.totalSearch1 = new TravelPlan.TotalSearch();
@@ -191,6 +192,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.foundRoot1);
             this.panel3.Controls.Add(this.planning);
             this.panel3.Controls.Add(this.main1);
             this.panel3.Controls.Add(this.totalSearch1);
@@ -199,6 +201,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1073, 423);
             this.panel3.TabIndex = 1;
+            // 
+            // foundRoot1
+            // 
+            this.foundRoot1.BackColor = System.Drawing.Color.White;
+            this.foundRoot1.Location = new System.Drawing.Point(0, 0);
+            this.foundRoot1.Name = "foundRoot1";
+            this.foundRoot1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.foundRoot1.Size = new System.Drawing.Size(1073, 423);
+            this.foundRoot1.TabIndex = 3;
             // 
             // planning
             // 
@@ -260,6 +271,7 @@
         private Main main1;
         private System.Windows.Forms.Button btnMap;
         private Business_Logic_Layer.Planning planning;
+        private FoundRoute foundRoot1;
     }
 }
 

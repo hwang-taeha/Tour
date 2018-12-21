@@ -1,47 +1,401 @@
 {
-  "response": {
-    "header": {
-      "resultCode": "0000",
-      "resultMsg": "OK"
-    },
-    "body": {
-      "items": {
-        "item": [
+  "result": {
+    "path": [
+      {
+        "pathType": 1,
+        "subPath": [
           {
-            "contentid": 2541578,
-            "originimgurl": "http://tong.visitkorea.or.kr/cms/resource/72/2541572_image2_1.jpg",
-            "serialnum": "2541572_3",
-            "smallimageurl": "http://tong.visitkorea.or.kr/cms/resource/72/2541572_image2_1.jpg"
+            "trafficType": 3,
+            "distance": 8,
+            "sectionTime": 1
           },
           {
-            "contentid": 2541578,
-            "originimgurl": "http://tong.visitkorea.or.kr/cms/resource/74/2541574_image2_1.jpg",
-            "serialnum": "2541574_2",
-            "smallimageurl": "http://tong.visitkorea.or.kr/cms/resource/74/2541574_image2_1.jpg"
+            "trafficType": 1,
+            "lane": [
+              {
+                "name": "수도권 2호선",
+                "subwayCode": 2,
+                "subwayCityCode": 1000
+              }
+            ],
+            "stationCount": 1,  //이동역수
+            "passStopList": { //경로 상세구간 정보 확장 노드
+              "stations": [
+                {
+                  "index": 0,
+                  "stationName": "당산",
+                  "stationID": 237,
+                  "x": "126.902682",
+                  "y": "37.534863"
+                },
+                {
+                  "index": 1,
+                  "stationName": "합정",
+                  "stationID": 238,
+                  "x": "126.914543",
+                  "y": "37.549942"
+                }
+              ]
+            },
+            "way": "합정",
+            "wayCode": 2,
+            "distance": 2000,
+            "sectionTime": 9, //이동소요시간
+            "door": "null",
+            "startX": 126.9026773,
+            "startY": 37.5348623,
+            "startID": 237,
+            "startName": "당산",
+            "startExitNo": "4",
+            "startExitX": 126.903165671079,
+            "startExitY": 37.5351929282617,
+            "endX": 126.9145431,
+            "endY": 37.5499381,
+            "endID": 238,
+            "endName": "합정",
+            "endExitNo": "5",
+            "endExitX": 126.914241714105,
+            "endExitY": 37.5495287816374
           },
           {
-            "contentid": 2541578,
-            "originimgurl": "http://tong.visitkorea.or.kr/cms/resource/75/2541575_image2_1.jpg",
-            "serialnum": "2541575_5",
-            "smallimageurl": "http://tong.visitkorea.or.kr/cms/resource/75/2541575_image2_1.jpg"
-          },
-          {
-            "contentid": 2541578,
-            "originimgurl": "http://tong.visitkorea.or.kr/cms/resource/76/2541576_image2_1.jpg",
-            "serialnum": "2541576_1",
-            "smallimageurl": "http://tong.visitkorea.or.kr/cms/resource/76/2541576_image2_1.jpg"
-          },
-          {
-            "contentid": 2541578,
-            "originimgurl": "http://tong.visitkorea.or.kr/cms/resource/77/2541577_image2_1.jpg",
-            "serialnum": "2541577_4",
-            "smallimageurl": "http://tong.visitkorea.or.kr/cms/resource/77/2541577_image2_1.jpg"
+            "trafficType": 3,
+            "distance": 0,
+            "sectionTime": 0
           }
-        ]
+        ],
+        "info": {
+          "mapObj": "2:2:237:238",
+          "payment": 1250,  //요금
+          "busTransitCount": 0, //버스환승카운트
+          "subwayTransitCount": 1,  //지하철환승카운트
+          "busStationCount": 0, //버스정류장 합
+          "subwayStationCount": 1,  //지하철 정류장 합
+          "totalStationCount": 1, // 총 합
+          "totalTime": 10,  //총 소요시간
+          "totalWalk": 8, //총 도보 이동거리
+          "trafficDistance": 2000,  //도보 제외 총 이동거리
+          "totalDistance": 2008,  //총 거리
+          "firstStartStation": "당산",  //최초 출발역/정류장
+          "lastEndStation": "합정", //최종 도착역/정류장
+          "totalWalkTime": -1
+        }
       },
-      "numOfRows": 10,
-      "pageNo": 1,
-      "totalCount": 5
-    }
+      {
+        "pathType": 2,
+        "subPath": [
+          {
+            "trafficType": 3,
+            "distance": 173,
+            "sectionTime": 3
+          },
+          {
+            "trafficType": 2,
+            "lane": [
+              {
+                "busNo": "761",
+                "type": 11,
+                "busID": 618
+              }
+            ],
+            "stationCount": 2,
+            "passStopList": {
+              "stations": [
+                {
+                  "index": 0,
+                  "stationName": "당산역",
+                  "stationID": 102320,
+                  "x": "126.900803",
+                  "y": "37.534611"
+                },
+                {
+                  "index": 1,
+                  "stationName": "선유도공원",
+                  "stationID": 112432,
+                  "x": "126.902834",
+                  "y": "37.541910"
+                },
+                {
+                  "index": 2,
+                  "stationName": "합정역",
+                  "stationID": 193771,
+                  "x": "126.912950",
+                  "y": "37.548995"
+                }
+              ]
+            },
+            "distance": 2273,
+            "sectionTime": 10,
+            "startX": 126.9008027,
+            "startY": 37.5346106,
+            "startID": 102320,
+            "startName": "당산역",
+            "endX": 126.9129498,
+            "endY": 37.5489954,
+            "endID": 193771,
+            "endName": "합정역"
+          },
+          {
+            "trafficType": 3,
+            "distance": 175,
+            "sectionTime": 3
+          }
+        ],
+        "info": {
+          "mapObj": "618:1:44:46",
+          "payment": 1200,
+          "busTransitCount": 1,
+          "subwayTransitCount": 0,
+          "busStationCount": 2,
+          "subwayStationCount": 0,
+          "totalStationCount": 2,
+          "totalTime": 16,
+          "totalWalk": 348,
+          "trafficDistance": 2273,
+          "totalDistance": 2621,
+          "firstStartStation": "당산역",
+          "lastEndStation": "합정역",
+          "totalWalkTime": -1
+        }
+      },
+      {
+        "pathType": 2,
+        "subPath": [
+          {
+            "trafficType": 3,
+            "distance": 173,
+            "sectionTime": 3
+          },
+          {
+            "trafficType": 2,
+            "lane": [
+              {
+                "busNo": "603",
+                "type": 11,
+                "busID": 1168
+              }
+            ],
+            "stationCount": 2,
+            "passStopList": {
+              "stations": [
+                {
+                  "index": 0,
+                  "stationName": "당산역",
+                  "stationID": 102320,
+                  "x": "126.900803",
+                  "y": "37.534611"
+                },
+                {
+                  "index": 1,
+                  "stationName": "선유도공원",
+                  "stationID": 112432,
+                  "x": "126.902834",
+                  "y": "37.541910"
+                },
+                {
+                  "index": 2,
+                  "stationName": "합정역",
+                  "stationID": 193771,
+                  "x": "126.912950",
+                  "y": "37.548995"
+                }
+              ]
+            },
+            "distance": 2273,
+            "sectionTime": 10,
+            "startX": 126.9008027,
+            "startY": 37.5346106,
+            "startID": 102320,
+            "startName": "당산역",
+            "endX": 126.9129498,
+            "endY": 37.5489954,
+            "endID": 193771,
+            "endName": "합정역"
+          },
+          {
+            "trafficType": 3,
+            "distance": 175,
+            "sectionTime": 3
+          }
+        ],
+        "info": {
+          "mapObj": "1168:1:24:26",
+          "payment": 1200,
+          "busTransitCount": 1,
+          "subwayTransitCount": 0,
+          "busStationCount": 2,
+          "subwayStationCount": 0,
+          "totalStationCount": 2,
+          "totalTime": 16,
+          "totalWalk": 348,
+          "trafficDistance": 2273,
+          "totalDistance": 2621,
+          "firstStartStation": "당산역",
+          "lastEndStation": "합정역",
+          "totalWalkTime": -1
+        }
+      },
+      {
+        "pathType": 2,
+        "subPath": [
+          {
+            "trafficType": 3,
+            "distance": 173,
+            "sectionTime": 3
+          },
+          {
+            "trafficType": 2,
+            "lane": [
+              {
+                "busNo": "5714",
+                "type": 12,
+                "busID": 1154
+              }
+            ],
+            "stationCount": 2,
+            "passStopList": {
+              "stations": [
+                {
+                  "index": 0,
+                  "stationName": "당산역",
+                  "stationID": 102320,
+                  "x": "126.900803",
+                  "y": "37.534611"
+                },
+                {
+                  "index": 1,
+                  "stationName": "선유도공원",
+                  "stationID": 112432,
+                  "x": "126.902834",
+                  "y": "37.541910"
+                },
+                {
+                  "index": 2,
+                  "stationName": "합정역",
+                  "stationID": 193771,
+                  "x": "126.912950",
+                  "y": "37.548995"
+                }
+              ]
+            },
+            "distance": 2273,
+            "sectionTime": 10,
+            "startX": 126.9008027,
+            "startY": 37.5346106,
+            "startID": 102320,
+            "startName": "당산역",
+            "endX": 126.9129498,
+            "endY": 37.5489954,
+            "endID": 193771,
+            "endName": "합정역"
+          },
+          {
+            "trafficType": 3,
+            "distance": 175,
+            "sectionTime": 3
+          }
+        ],
+        "info": {
+          "mapObj": "1154:1:34:36",
+          "payment": 1200,
+          "busTransitCount": 1,
+          "subwayTransitCount": 0,
+          "busStationCount": 2,
+          "subwayStationCount": 0,
+          "totalStationCount": 2,
+          "totalTime": 16,
+          "totalWalk": 348,
+          "trafficDistance": 2273,
+          "totalDistance": 2621,
+          "firstStartStation": "당산역",
+          "lastEndStation": "합정역",
+          "totalWalkTime": -1
+        }
+      },
+      {
+        "pathType": 2,
+        "subPath": [
+          {
+            "trafficType": 3,
+            "distance": 558,
+            "sectionTime": 8
+          },
+          {
+            "trafficType": 2,
+            "lane": [
+              {
+                "busNo": "7612",
+                "type": 12,
+                "busID": 1279
+              }
+            ],
+            "stationCount": 2,
+            "passStopList": {
+              "stations": [
+                {
+                  "index": 0,
+                  "stationName": "선유고등학교",
+                  "stationID": 102213,
+                  "x": "126.896512",
+                  "y": "37.533994"
+                },
+                {
+                  "index": 1,
+                  "stationName": "선유도공원",
+                  "stationID": 112432,
+                  "x": "126.902834",
+                  "y": "37.541910"
+                },
+                {
+                  "index": 2,
+                  "stationName": "합정역",
+                  "stationID": 193771,
+                  "x": "126.912950",
+                  "y": "37.548995"
+                }
+              ]
+            },
+            "distance": 2249,
+            "sectionTime": 10,
+            "startX": 126.8965122,
+            "startY": 37.533994,
+            "startID": 102213,
+            "startName": "선유고등학교",
+            "endX": 126.9129498,
+            "endY": 37.5489954,
+            "endID": 193771,
+            "endName": "합정역"
+          },
+          {
+            "trafficType": 3,
+            "distance": 175,
+            "sectionTime": 3
+          }
+        ],
+        "info": {
+          "mapObj": "1279:1:27:29",
+          "payment": 1200,
+          "busTransitCount": 1,
+          "subwayTransitCount": 0,
+          "busStationCount": 2,
+          "subwayStationCount": 0,
+          "totalStationCount": 2,
+          "totalTime": 21,
+          "totalWalk": 733,
+          "trafficDistance": 2249,
+          "totalDistance": 2982,
+          "firstStartStation": "선유고등학교",
+          "lastEndStation": "합정역",
+          "totalWalkTime": -1
+        }
+      }
+    ],
+    "searchType": 0,
+    "startRadius": 700,
+    "endRadius": 700,
+    "subwayCount": 1,
+    "busCount": 4,
+    "subwayBusCount": 0,
+    "pointDistance": 1967,
+    "outTrafficCheck": 0
   }
 }

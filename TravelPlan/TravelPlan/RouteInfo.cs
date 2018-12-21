@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TravelPlan
 {
-    public partial class FoundRoot : UserControl
+    public partial class RouteInfo : UserControl
     {
-        public FoundRoot()
+        public RouteInfo()
         {
             InitializeComponent();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

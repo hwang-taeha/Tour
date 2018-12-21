@@ -125,7 +125,6 @@ namespace TravelPlan
             var jObj = JObject.Parse(f.GetJson(url));
 
             items = jObj["response"]["body"]["items"]["item"] as JObject;
-
             if (items.ContainsKey("spendtimefestival"))
             {
                 tboxIntro.Text = "주최자 정보 : " + items["sponsor1"].ToString() + "\r\n\r\n";
