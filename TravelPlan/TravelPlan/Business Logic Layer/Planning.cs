@@ -26,12 +26,15 @@ namespace TravelPlan.Business_Logic_Layer
                 day = this.planDateControl1.days;
                 planDateControl1.Dispose();
                 planCheck.BringToFront();
+                Form1.ImageList = new ImageList[day];
                 for (int i = 0; i < day; i++)
                 {
                     planCheck.cbTotalDays.Items.Add(i + 1);
                     Form1.DayPlan.Add(new List<Planner>());
+                    Form1.ImageList[i] = new ImageList();
+
                 }
-                planCheck.cbTotalDays.Text = planCheck.cbTotalDays.Items[0].ToString(); 
+                planCheck.cbTotalDays.Text = planCheck.cbTotalDays.Items[0].ToString();
             }
 
             if (PageNumber==1)

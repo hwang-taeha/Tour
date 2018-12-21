@@ -2,12 +2,12 @@
 {
     partial class TotalSearch
     {
-        /// <summary> 
+        /// <summary>
         /// 필수 디자이너 변수입니다.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// 사용 중인 모든 리소스를 정리합니다.
         /// </summary>
         /// <param name="disposing">관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
@@ -20,126 +20,228 @@
             base.Dispose(disposing);
         }
 
-        #region 구성 요소 디자이너에서 생성한 코드
+        #region Windows Form 디자이너에서 생성한 코드
 
-        /// <summary> 
+        /// <summary>
         /// 디자이너 지원에 필요한 메서드입니다. 
         /// 이 메서드의 내용을 코드 편집기로 수정하지 마세요.
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tboxSearch = new System.Windows.Forms.TextBox();
+            this.cmbCat1 = new System.Windows.Forms.ComboBox();
+            this.cmbCat2 = new System.Windows.Forms.ComboBox();
+            this.cmbCat3 = new System.Windows.Forms.ComboBox();
+            this.lblCat = new System.Windows.Forms.Label();
+            this.lblArea = new System.Windows.Forms.Label();
+            this.cmbSigungu = new System.Windows.Forms.ComboBox();
+            this.cmbArea = new System.Windows.Forms.ComboBox();
+            this.lblContentType = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.rdoService = new System.Windows.Forms.RadioButton();
+            this.rdoArea = new System.Windows.Forms.RadioButton();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.gvTotalSearch = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gvTotalSearch)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rdoTotal = new System.Windows.Forms.RadioButton();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox3
+            // cmbCat1
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(304, 78);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 20);
-            this.comboBox3.TabIndex = 13;
-            this.comboBox3.Text = "시군구 선택";
+            this.cmbCat1.FormattingEnabled = true;
+            this.cmbCat1.Location = new System.Drawing.Point(120, 46);
+            this.cmbCat1.Name = "cmbCat1";
+            this.cmbCat1.Size = new System.Drawing.Size(121, 20);
+            this.cmbCat1.TabIndex = 0;
+            this.cmbCat1.Text = "대분류";
+            this.cmbCat1.Visible = false;
+            this.cmbCat1.SelectionChangeCommitted += new System.EventHandler(this.cmbCat1_SelectedValueChanged);
             // 
-            // textBox1
+            // cmbCat2
             // 
-            this.textBox1.Location = new System.Drawing.Point(426, 17);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 162);
-            this.textBox1.TabIndex = 12;
+            this.cmbCat2.FormattingEnabled = true;
+            this.cmbCat2.Location = new System.Drawing.Point(247, 46);
+            this.cmbCat2.Name = "cmbCat2";
+            this.cmbCat2.Size = new System.Drawing.Size(121, 20);
+            this.cmbCat2.TabIndex = 1;
+            this.cmbCat2.Text = "중분류";
+            this.cmbCat2.Visible = false;
+            this.cmbCat2.SelectionChangeCommitted += new System.EventHandler(this.cmbCat2_SelectedIndexChanged);
             // 
-            // tboxSearch
+            // cmbCat3
             // 
-            this.tboxSearch.Location = new System.Drawing.Point(31, 158);
-            this.tboxSearch.Name = "tboxSearch";
-            this.tboxSearch.Size = new System.Drawing.Size(100, 21);
-            this.tboxSearch.TabIndex = 11;
+            this.cmbCat3.FormattingEnabled = true;
+            this.cmbCat3.Location = new System.Drawing.Point(374, 46);
+            this.cmbCat3.Name = "cmbCat3";
+            this.cmbCat3.Size = new System.Drawing.Size(121, 20);
+            this.cmbCat3.TabIndex = 2;
+            this.cmbCat3.Text = "소분류";
+            this.cmbCat3.Visible = false;
+            // 
+            // lblCat
+            // 
+            this.lblCat.AutoSize = true;
+            this.lblCat.Location = new System.Drawing.Point(49, 49);
+            this.lblCat.Name = "lblCat";
+            this.lblCat.Size = new System.Drawing.Size(65, 12);
+            this.lblCat.TabIndex = 3;
+            this.lblCat.Text = "서비스분류";
+            this.lblCat.Visible = false;
+            // 
+            // lblArea
+            // 
+            this.lblArea.AutoSize = true;
+            this.lblArea.Location = new System.Drawing.Point(85, 49);
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size(29, 12);
+            this.lblArea.TabIndex = 4;
+            this.lblArea.Text = "지역";
+            this.lblArea.Visible = false;
+            // 
+            // cmbSigungu
+            // 
+            this.cmbSigungu.FormattingEnabled = true;
+            this.cmbSigungu.Location = new System.Drawing.Point(247, 46);
+            this.cmbSigungu.Name = "cmbSigungu";
+            this.cmbSigungu.Size = new System.Drawing.Size(121, 20);
+            this.cmbSigungu.TabIndex = 6;
+            this.cmbSigungu.Text = "시군구 선택";
+            this.cmbSigungu.Visible = false;
+            // 
+            // cmbArea
+            // 
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.Location = new System.Drawing.Point(120, 46);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(121, 20);
+            this.cmbArea.TabIndex = 5;
+            this.cmbArea.Text = "지역 선택";
+            this.cmbArea.Visible = false;
+            this.cmbArea.SelectedIndexChanged += new System.EventHandler(this.cmbArea_SelectedValueChanged);
+            // 
+            // lblContentType
+            // 
+            this.lblContentType.AutoSize = true;
+            this.lblContentType.Location = new System.Drawing.Point(61, 49);
+            this.lblContentType.Name = "lblContentType";
+            this.lblContentType.Size = new System.Drawing.Size(53, 12);
+            this.lblContentType.TabIndex = 7;
+            this.lblContentType.Text = "관광타입";
+            this.lblContentType.Visible = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(120, 46);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(248, 21);
+            this.txtSearch.TabIndex = 9;
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(85, 49);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(29, 12);
+            this.lblSearch.TabIndex = 10;
+            this.lblSearch.Text = "검색";
+            // 
+            // rdoService
+            // 
+            this.rdoService.AutoSize = true;
+            this.rdoService.Location = new System.Drawing.Point(173, 22);
+            this.rdoService.Name = "rdoService";
+            this.rdoService.Size = new System.Drawing.Size(83, 16);
+            this.rdoService.TabIndex = 11;
+            this.rdoService.Text = "서비스분류";
+            this.rdoService.UseVisualStyleBackColor = true;
+            this.rdoService.CheckedChanged += new System.EventHandler(this.rdoService_CheckedChanged);
+            // 
+            // rdoArea
+            // 
+            this.rdoArea.AutoSize = true;
+            this.rdoArea.Location = new System.Drawing.Point(262, 22);
+            this.rdoArea.Name = "rdoArea";
+            this.rdoArea.Size = new System.Drawing.Size(47, 16);
+            this.rdoArea.TabIndex = 12;
+            this.rdoArea.Text = "지역";
+            this.rdoArea.UseVisualStyleBackColor = true;
+            this.rdoArea.CheckedChanged += new System.EventHandler(this.rdoArea_CheckedChanged);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(158, 156);
+            this.btnSearch.Location = new System.Drawing.Point(374, 44);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Size = new System.Drawing.Size(46, 23);
+            this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // comboBox2
+            // label1
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "자연",
-            "인문(문화/예술/역사)",
-            "레포츠",
-            "쇼핑",
-            "음식",
-            "숙박",
-            "추천코스"});
-            this.comboBox2.Location = new System.Drawing.Point(158, 34);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 9;
-            this.comboBox2.Text = "대분류";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "분류방법";
             // 
-            // comboBox1
+            // rdoTotal
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "서울",
-            "인천",
-            "대전",
-            "대구",
-            "광주",
-            "부산",
-            "울산",
-            "세종특별자치시",
-            "경기도",
-            "강원도",
-            "충청북도",
-            "충청남도",
-            "경상북도",
-            "경상남도",
-            "전라북도",
-            "전라남도",
-            "제주도"});
-            this.comboBox1.Location = new System.Drawing.Point(158, 78);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.Text = "지역선택";
+            this.rdoTotal.AutoSize = true;
+            this.rdoTotal.Checked = true;
+            this.rdoTotal.Location = new System.Drawing.Point(120, 22);
+            this.rdoTotal.Name = "rdoTotal";
+            this.rdoTotal.Size = new System.Drawing.Size(47, 16);
+            this.rdoTotal.TabIndex = 15;
+            this.rdoTotal.TabStop = true;
+            this.rdoTotal.Text = "통합";
+            this.rdoTotal.UseVisualStyleBackColor = true;
+            this.rdoTotal.CheckedChanged += new System.EventHandler(this.rdoTotal_CheckedChanged);
             // 
-            // gvTotalSearch
+            // listView1
             // 
-            this.gvTotalSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvTotalSearch.Location = new System.Drawing.Point(28, 185);
-            this.gvTotalSearch.Name = "gvTotalSearch";
-            this.gvTotalSearch.RowTemplate.Height = 23;
-            this.gvTotalSearch.Size = new System.Drawing.Size(982, 225);
-            this.gvTotalSearch.TabIndex = 7;
+            this.listView1.Location = new System.Drawing.Point(24, 104);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(991, 287);
+            this.listView1.TabIndex = 17;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(868, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 49);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "담기";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TotalSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.tboxSearch);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.rdoTotal);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.rdoArea);
+            this.Controls.Add(this.rdoService);
+            this.Controls.Add(this.lblSearch);
+            this.Controls.Add(this.lblContentType);
+            this.Controls.Add(this.lblArea);
+            this.Controls.Add(this.lblCat);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.gvTotalSearch);
+            this.Controls.Add(this.cmbArea);
+            this.Controls.Add(this.cmbCat1);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.cmbCat3);
+            this.Controls.Add(this.cmbCat2);
+            this.Controls.Add(this.cmbSigungu);
             this.Name = "TotalSearch";
-            this.Size = new System.Drawing.Size(1073, 423);
-            ((System.ComponentModel.ISupportInitialize)(this.gvTotalSearch)).EndInit();
+            this.Size = new System.Drawing.Size(1061, 450);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,12 +249,22 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox tboxSearch;
+        private System.Windows.Forms.ComboBox cmbCat1;
+        private System.Windows.Forms.ComboBox cmbCat2;
+        private System.Windows.Forms.ComboBox cmbCat3;
+        private System.Windows.Forms.Label lblCat;
+        private System.Windows.Forms.Label lblArea;
+        private System.Windows.Forms.ComboBox cmbSigungu;
+        private System.Windows.Forms.ComboBox cmbArea;
+        private System.Windows.Forms.Label lblContentType;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.RadioButton rdoService;
+        private System.Windows.Forms.RadioButton rdoArea;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView gvTotalSearch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rdoTotal;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button1;
     }
 }

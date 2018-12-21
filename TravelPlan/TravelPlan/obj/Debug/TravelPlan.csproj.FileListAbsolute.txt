@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\GD23\Desktop\TravelPlan\TravelPlan\bin\Debug\TravelPlan.exe.config
 C:\Users\GD23\Desktop\TravelPlan\TravelPlan\bin\Debug\TravelPlan.exe
 C:\Users\GD23\Desktop\TravelPlan\TravelPlan\bin\Debug\TravelPlan.pdb
@@ -95,6 +96,8 @@ C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\
 C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.Planning.resources
 C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.CompletePlan.resources
 C:\Users\GDI\Desktop\새 폴더 (2)\traveel (1)\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.DaysPlan.resources
+=======
+>>>>>>> master
 C:\Tour\TravelPlan\TravelPlan\bin\Debug\Planner.mdf
 C:\Tour\TravelPlan\TravelPlan\bin\Debug\Planner_log.ldf
 C:\Tour\TravelPlan\TravelPlan\bin\Debug\TravelPlan.exe.config
