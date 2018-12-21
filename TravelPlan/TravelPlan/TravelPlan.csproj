@@ -219,6 +219,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Planner.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\main22.jpg" />
     <None Include="Resources\car48.png" />
     <None Include="Resources\map64.png" />
     <None Include="Resources\search64.png" />

@@ -267,10 +267,6 @@ namespace TravelPlan
         
         private void btnDib_Click(object sender, EventArgs e)
         {
-            //Form1 f = new Form1();
-            //MessageBox.Show(lvFestival.SelectedItems[0].SubItems[0].Text);
-
-
             if (lvFestival.SelectedItems.Count != 0)
             {
                 foreach (var item in lst)
