@@ -16,6 +16,8 @@ namespace TravelPlan.Business_Logic_Layer
         {
             InitializeComponent();
             planDateControl1.BringToFront();
+            btnpre.Enabled = false;
+            btnDone.Visible = false;
         }
         int PageNumber=0;
         int day;
@@ -23,8 +25,11 @@ namespace TravelPlan.Business_Logic_Layer
         {
             if (PageNumber==0)
             {
+                Form1.DayPlan.Clear();
+                planCheck.lblPlan.Text = planDateControl1.lblFirstDay.Text + "~" + planDateControl1.lblLastDay.Text;
+                planCheck.cbTotalDays.Items.Clear();
                 day = this.planDateControl1.days;
-                planDateControl1.Dispose();
+                //planDateControl1.Dispose();
                 planCheck.BringToFront();
                 Form1.ImageList = new ImageList[day];
                 for (int i = 0; i < day; i++)
@@ -32,15 +37,18 @@ namespace TravelPlan.Business_Logic_Layer
                     planCheck.cbTotalDays.Items.Add(i + 1);
                     Form1.DayPlan.Add(new List<Planner>());
                     Form1.ImageList[i] = new ImageList();
-
                 }
                 planCheck.cbTotalDays.Text = planCheck.cbTotalDays.Items[0].ToString();
+                btnpre.Enabled = true;
             }
 
             if (PageNumber==1)
             {
                 completePlan.Start();
                 completePlan.BringToFront();
+                btnNext.Visible = false;
+                btnDone.Visible = true;
+                btnpre.Location = new Point(747, 369);
             }
 
             PageNumber++;
@@ -51,6 +59,24 @@ namespace TravelPlan.Business_Logic_Layer
         private void planCheck_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (PageNumber==1)
+            {
+                planDateControl1.BringToFront();
+                btnpre.Enabled = false;
+            }
+          
+            if (PageNumber==2)
+            {
+                planCheck.BringToFront();
+                btnpre.Location = new Point(666, 369);
+                btnNext.Visible = true;
+                btnDone.Visible = false;
+            }
+            PageNumber--;
         }
     }
 }

@@ -40,9 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.main1 = new TravelPlan.Main();
             this.totalSearch1 = new TravelPlan.TotalSearch();
-            this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -200,6 +200,14 @@
             this.panel3.Size = new System.Drawing.Size(1073, 423);
             this.panel3.TabIndex = 1;
             // 
+            // planning
+            // 
+            this.planning.Location = new System.Drawing.Point(0, 0);
+            this.planning.Name = "planning";
+            this.planning.Size = new System.Drawing.Size(1073, 423);
+            this.planning.TabIndex = 2;
+            this.planning.Load += new System.EventHandler(this.planning_Load);
+            // 
             // main1
             // 
             this.main1.BackColor = System.Drawing.Color.White;
@@ -215,13 +223,6 @@
             this.totalSearch1.Name = "totalSearch1";
             this.totalSearch1.Size = new System.Drawing.Size(1073, 423);
             this.totalSearch1.TabIndex = 0;
-            // 
-            // planning
-            // 
-            this.planning.Location = new System.Drawing.Point(0, 0);
-            this.planning.Name = "planning";
-            this.planning.Size = new System.Drawing.Size(1073, 423);
-            this.planning.TabIndex = 2;
             // 
             // Form1
             // 

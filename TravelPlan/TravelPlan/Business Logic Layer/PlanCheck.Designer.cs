@@ -36,6 +36,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnCurrentJJim = new System.Windows.Forms.Button();
+            this.lblPlan = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbTotalDays
@@ -114,10 +115,20 @@
             this.btnCurrentJJim.UseVisualStyleBackColor = true;
             this.btnCurrentJJim.Click += new System.EventHandler(this.btnCurrentJJim_Click);
             // 
+            // lblPlan
+            // 
+            this.lblPlan.AutoSize = true;
+            this.lblPlan.Location = new System.Drawing.Point(19, 4);
+            this.lblPlan.Name = "lblPlan";
+            this.lblPlan.Size = new System.Drawing.Size(38, 12);
+            this.lblPlan.TabIndex = 8;
+            this.lblPlan.Text = "label1";
+            // 
             // PlanCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblPlan);
             this.Controls.Add(this.btnCurrentJJim);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
@@ -143,5 +154,6 @@
         private System.Windows.Forms.Button btnSearch;
         public System.Windows.Forms.ComboBox cbTotalDays;
         private System.Windows.Forms.Button btnCurrentJJim;
+        internal System.Windows.Forms.Label lblPlan;
     }
 }

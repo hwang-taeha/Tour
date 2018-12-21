@@ -82,5 +82,10 @@ namespace TravelPlan
             main1.BringToFront();
 
         }
+
+        private void planning_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,6 +30,8 @@
         {
             this.btnNext = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDone = new System.Windows.Forms.Button();
+            this.btnpre = new System.Windows.Forms.Button();
             this.completePlan = new TravelPlan.Business_Logic_Layer.CompletePlan();
             this.planDateControl1 = new TravelPlan.PlanDateControl();
             this.planCheck = new TravelPlan.PlanCheck();
@@ -53,6 +55,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(166, 423);
             this.panel1.TabIndex = 3;
+            // 
+            // btnDone
+            // 
+            this.btnDone.Location = new System.Drawing.Point(829, 369);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(75, 23);
+            this.btnDone.TabIndex = 5;
+            this.btnDone.Text = "완료";
+            this.btnDone.UseVisualStyleBackColor = true;
+            // 
+            // btnpre
+            // 
+            this.btnpre.Location = new System.Drawing.Point(666, 369);
+            this.btnpre.Name = "btnpre";
+            this.btnpre.Size = new System.Drawing.Size(75, 23);
+            this.btnpre.TabIndex = 6;
+            this.btnpre.Text = "이전";
+            this.btnpre.UseVisualStyleBackColor = true;
+            this.btnpre.Click += new System.EventHandler(this.button2_Click);
             // 
             // completePlan
             // 
@@ -80,6 +101,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnpre);
+            this.Controls.Add(this.btnDone);
             this.Controls.Add(this.completePlan);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNext);
@@ -98,5 +121,7 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Panel panel1;
         private CompletePlan completePlan;
+        private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Button btnpre;
     }
 }

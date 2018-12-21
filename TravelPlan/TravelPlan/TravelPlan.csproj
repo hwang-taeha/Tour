@@ -165,6 +165,12 @@
     <EmbeddedResource Include="Business Logic Layer\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\PlanCheck.resx">
+      <DependentUpon>PlanCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\PlanDateControl.resx">
+      <DependentUpon>PlanDateControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business Logic Layer\Planning.resx">
       <DependentUpon>Planning.cs</DependentUpon>
     </EmbeddedResource>

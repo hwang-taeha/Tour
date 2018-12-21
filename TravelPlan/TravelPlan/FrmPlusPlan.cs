@@ -26,9 +26,11 @@ namespace TravelPlan
         ImageList imageList = new ImageList();
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            listView1.Clear();
+            imageList.Images.Clear();
+            tempPlanners.Clear();
             if (!string.IsNullOrEmpty(textBox1.Text))
             {
-                listView1.Clear();
                 //string privateKey = ConfigurationManager.ConnectionStrings["APIKey"].ConnectionString;
                 string privateKey = "g0bFjmq9pmCLoJqvIGHUrWi%2FemZAn7PEDenAhZEGmwaL5DwzsEL%2FNV3gTWA8auCqFN2l7DzrKCuRMMD2FeSRSg%3D%3D";
                 string searchText = HttpUtility.UrlEncode(textBox1.Text, Encoding.UTF8);
