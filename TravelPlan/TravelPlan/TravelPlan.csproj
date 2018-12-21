@@ -132,12 +132,6 @@
     <Compile Include="FrmPlusPlan.Designer.cs">
       <DependentUpon>FrmPlusPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmShowFestival.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmShowFestival.Designer.cs">
-      <DependentUpon>FrmShowFestival.cs</DependentUpon>
-    </Compile>
     <Compile Include="IPlanner.cs" />
     <Compile Include="Main.cs">
       <SubType>UserControl</SubType>
@@ -182,9 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FoundRoot.resx">
       <DependentUpon>FoundRoot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmShowFestival.resx">
-      <DependentUpon>FrmShowFestival.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
