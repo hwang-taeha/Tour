@@ -40,9 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.main1 = new TravelPlan.Main();
             this.totalSearch1 = new TravelPlan.TotalSearch();
-            this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -171,7 +171,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(170, 47);
+            this.label1.Location = new System.Drawing.Point(155, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 60);
             this.label1.TabIndex = 1;
@@ -181,9 +181,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TravelPlan.Properties.Resources._3668834_128;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 104);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -200,6 +200,13 @@
             this.panel3.Size = new System.Drawing.Size(1073, 423);
             this.panel3.TabIndex = 1;
             // 
+            // planning
+            // 
+            this.planning.Location = new System.Drawing.Point(0, 0);
+            this.planning.Name = "planning";
+            this.planning.Size = new System.Drawing.Size(1073, 423);
+            this.planning.TabIndex = 2;
+            // 
             // main1
             // 
             this.main1.BackColor = System.Drawing.Color.White;
@@ -215,13 +222,6 @@
             this.totalSearch1.Name = "totalSearch1";
             this.totalSearch1.Size = new System.Drawing.Size(1073, 423);
             this.totalSearch1.TabIndex = 0;
-            // 
-            // planning
-            // 
-            this.planning.Location = new System.Drawing.Point(0, 0);
-            this.planning.Name = "planning";
-            this.planning.Size = new System.Drawing.Size(1073, 423);
-            this.planning.TabIndex = 2;
             // 
             // Form1
             // 
