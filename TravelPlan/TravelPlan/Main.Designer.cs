@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Sidepanel = new System.Windows.Forms.Panel();
-            this.btnTraffic = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pboxMain = new System.Windows.Forms.PictureBox();
             this.btnFestival = new System.Windows.Forms.Button();
-            this.festival1 = new TravelPlan.Festival();
+            this.btnTraffic = new System.Windows.Forms.Button();
             this.traffic1 = new TravelPlan.Traffic();
+            this.festival1 = new TravelPlan.Festival();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMain)).BeginInit();
@@ -63,6 +63,43 @@
             this.Sidepanel.TabIndex = 6;
             this.Sidepanel.Visible = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pboxMain);
+            this.panel2.Controls.Add(this.traffic1);
+            this.panel2.Controls.Add(this.festival1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(884, 423);
+            this.panel2.TabIndex = 2;
+            // 
+            // pboxMain
+            // 
+            this.pboxMain.Image = global::TravelPlan.Properties.Resources.main22;
+            this.pboxMain.Location = new System.Drawing.Point(0, 0);
+            this.pboxMain.Name = "pboxMain";
+            this.pboxMain.Size = new System.Drawing.Size(887, 423);
+            this.pboxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxMain.TabIndex = 0;
+            this.pboxMain.TabStop = false;
+            // 
+            // btnFestival
+            // 
+            this.btnFestival.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFestival.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.btnFestival.ForeColor = System.Drawing.Color.White;
+            this.btnFestival.Image = ((System.Drawing.Image)(resources.GetObject("btnFestival.Image")));
+            this.btnFestival.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFestival.Location = new System.Drawing.Point(3, 77);
+            this.btnFestival.Name = "btnFestival";
+            this.btnFestival.Size = new System.Drawing.Size(183, 80);
+            this.btnFestival.TabIndex = 7;
+            this.btnFestival.Text = "축제 정보";
+            this.btnFestival.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFestival.UseVisualStyleBackColor = true;
+            this.btnFestival.Click += new System.EventHandler(this.btnFestival_Click);
+            // 
             // btnTraffic
             // 
             this.btnTraffic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -79,50 +116,6 @@
             this.btnTraffic.UseVisualStyleBackColor = true;
             this.btnTraffic.Click += new System.EventHandler(this.btnTraffic_Click_1);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pboxMain);
-            this.panel2.Controls.Add(this.traffic1);
-            this.panel2.Controls.Add(this.festival1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(884, 423);
-            this.panel2.TabIndex = 2;
-            // 
-            // pboxMain
-            // 
-            this.pboxMain.Image = ((System.Drawing.Image)(resources.GetObject("pboxMain.Image")));
-            this.pboxMain.Location = new System.Drawing.Point(0, 0);
-            this.pboxMain.Name = "pboxMain";
-            this.pboxMain.Size = new System.Drawing.Size(887, 372);
-            this.pboxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxMain.TabIndex = 0;
-            this.pboxMain.TabStop = false;
-            // 
-            // btnFestival
-            // 
-            this.btnFestival.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFestival.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
-            this.btnFestival.ForeColor = System.Drawing.Color.White;
-            this.btnFestival.Image = global::TravelPlan.Properties.Resources.car48;
-            this.btnFestival.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFestival.Location = new System.Drawing.Point(3, 77);
-            this.btnFestival.Name = "btnFestival";
-            this.btnFestival.Size = new System.Drawing.Size(183, 80);
-            this.btnFestival.TabIndex = 7;
-            this.btnFestival.Text = "축제 정보";
-            this.btnFestival.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFestival.UseVisualStyleBackColor = true;
-            this.btnFestival.Click += new System.EventHandler(this.btnFestival_Click);
-            // 
-            // festival1
-            // 
-            this.festival1.Location = new System.Drawing.Point(3, 0);
-            this.festival1.Name = "festival1";
-            this.festival1.Size = new System.Drawing.Size(884, 423);
-            this.festival1.TabIndex = 2;
-            // 
             // traffic1
             // 
             this.traffic1.BackColor = System.Drawing.Color.White;
@@ -130,6 +123,14 @@
             this.traffic1.Name = "traffic1";
             this.traffic1.Size = new System.Drawing.Size(884, 423);
             this.traffic1.TabIndex = 1;
+            // 
+            // festival1
+            // 
+            this.festival1.BackColor = System.Drawing.Color.White;
+            this.festival1.Location = new System.Drawing.Point(3, 0);
+            this.festival1.Name = "festival1";
+            this.festival1.Size = new System.Drawing.Size(884, 423);
+            this.festival1.TabIndex = 2;
             // 
             // Main
             // 

@@ -73,7 +73,11 @@ namespace TravelPlan
         {
             bottomPanel.Width = btnMap.Width;
             bottomPanel.Left = btnMap.Left;
+<<<<<<< HEAD
             foundRoute1.BringToFront();
+=======
+            foundRoot1.BringToFront();
+>>>>>>> wonuk
         }
 
         private void Form1_Load(object sender, EventArgs e)

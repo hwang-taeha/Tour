@@ -40,10 +40,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.main1 = new TravelPlan.Main();
             this.totalSearch1 = new TravelPlan.TotalSearch();
             this.foundRoute1 = new TravelPlan.FoundRoute();
+=======
+            this.foundRoot1 = new TravelPlan.FoundRoute();
+            this.planning = new TravelPlan.Business_Logic_Layer.Planning();
+            this.main1 = new TravelPlan.Main();
+            this.totalSearch1 = new TravelPlan.TotalSearch();
+>>>>>>> wonuk
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -172,7 +179,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(170, 47);
+            this.label1.Location = new System.Drawing.Point(155, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 60);
             this.label1.TabIndex = 1;
@@ -182,9 +189,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TravelPlan.Properties.Resources._3668834_128;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 104);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -192,7 +199,11 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.panel3.Controls.Add(this.foundRoute1);
+=======
+            this.panel3.Controls.Add(this.foundRoot1);
+>>>>>>> wonuk
             this.panel3.Controls.Add(this.planning);
             this.panel3.Controls.Add(this.main1);
             this.panel3.Controls.Add(this.totalSearch1);
@@ -202,13 +213,28 @@
             this.panel3.Size = new System.Drawing.Size(1073, 423);
             this.panel3.TabIndex = 1;
             // 
+<<<<<<< HEAD
+=======
+            // foundRoot1
+            // 
+            this.foundRoot1.BackColor = System.Drawing.Color.White;
+            this.foundRoot1.Location = new System.Drawing.Point(0, 0);
+            this.foundRoot1.Name = "foundRoot1";
+            this.foundRoot1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.foundRoot1.Size = new System.Drawing.Size(1073, 423);
+            this.foundRoot1.TabIndex = 3;
+            // 
+>>>>>>> wonuk
             // planning
             // 
             this.planning.Location = new System.Drawing.Point(0, 0);
             this.planning.Name = "planning";
             this.planning.Size = new System.Drawing.Size(1073, 423);
             this.planning.TabIndex = 2;
+<<<<<<< HEAD
             this.planning.Load += new System.EventHandler(this.planning_Load);
+=======
+>>>>>>> wonuk
             // 
             // main1
             // 
@@ -226,6 +252,7 @@
             this.totalSearch1.Size = new System.Drawing.Size(1073, 423);
             this.totalSearch1.TabIndex = 0;
             // 
+<<<<<<< HEAD
             // foundRoute1
             // 
             this.foundRoute1.BackColor = System.Drawing.Color.White;
@@ -235,6 +262,8 @@
             this.foundRoute1.Size = new System.Drawing.Size(1073, 423);
             this.foundRoute1.TabIndex = 3;
             // 
+=======
+>>>>>>> wonuk
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -272,7 +301,11 @@
         private Main main1;
         private System.Windows.Forms.Button btnMap;
         private Business_Logic_Layer.Planning planning;
+<<<<<<< HEAD
         private FoundRoute foundRoute1;
+=======
+        private FoundRoute foundRoot1;
+>>>>>>> wonuk
     }
 }
 
