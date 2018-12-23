@@ -64,6 +64,7 @@
             this.btnDone.TabIndex = 5;
             this.btnDone.Text = "완료";
             this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // btnpre
             // 

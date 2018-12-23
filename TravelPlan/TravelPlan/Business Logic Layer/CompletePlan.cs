@@ -33,11 +33,12 @@ namespace TravelPlan.Business_Logic_Layer
         {
             flowLayoutPanel1.Controls.Clear();
             DaysPlan[] days = new DaysPlan[Form1.DayPlan.Count];
-
+            flowLayoutPanel1.Controls.Clear();
             //Day별로
             for (int i = 0; i < Form1.DayPlan.Count; i++)
             {
                 //Form1.ImageList[i] = new ImageList();
+               
                 days[i] = new DaysPlan();
                 flowLayoutPanel1.Controls.Add(days[i]);
 

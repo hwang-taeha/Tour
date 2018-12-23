@@ -25,6 +25,7 @@ namespace TravelPlan.Business_Logic_Layer
         {
             if (PageNumber==0)
             {
+               
                 Form1.DayPlan.Clear();
                 planCheck.lblPlan.Text = planDateControl1.lblFirstDay.Text + "~" + planDateControl1.lblLastDay.Text;
                 planCheck.cbTotalDays.Items.Clear();
@@ -71,12 +72,35 @@ namespace TravelPlan.Business_Logic_Layer
           
             if (PageNumber==2)
             {
+                //foreach (var item in Form1.ImageList)
+                //{
+                //    item.Images.Clear();
+                //}
                 planCheck.BringToFront();
                 btnpre.Location = new Point(666, 369);
                 btnNext.Visible = true;
                 btnDone.Visible = false;
             }
             PageNumber--;
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            PlannerDAO plannerDAO = PlannerDAO.getInstance();
+
+            foreach (var item in Form1.DayPlan)
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    Planner plan = new Planner(i, item[i].Name, item[i].MapX, item[i].MapY, item[i].Loc, item[i].Tel, item[i].Image);
+                    plannerDAO.InsertPlanner(plan);
+                }
+            }
+            //Form1.DayPlan.Clear();
+            //Form1.TempPlan.Clear();
+            MessageBox.Show("저장되었습니다");
+            planDateControl1.BringToFront();
+            
         }
     }
 }
