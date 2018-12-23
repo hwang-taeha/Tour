@@ -113,8 +113,7 @@ namespace TravelPlan
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
+            
             try
             {
                 Form1.TempPlan.Add(tempPlanners[listView1.SelectedItems[0].Index]);

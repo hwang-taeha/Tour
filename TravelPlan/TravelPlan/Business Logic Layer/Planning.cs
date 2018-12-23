@@ -92,7 +92,7 @@ namespace TravelPlan.Business_Logic_Layer
             {
                 for (int i = 0; i < item.Count; i++)
                 {
-                    Planner plan = new Planner(i, item[i].Name, item[i].MapX, item[i].MapY, item[i].Loc, item[i].Tel, item[i].Image);
+                    Planner plan = new Planner(i+1, item[i].Name, item[i].MapX, item[i].MapY, item[i].Loc, item[i].Tel, item[i].Image);
                     plannerDAO.InsertPlanner(plan);
                 }
             }
@@ -100,7 +100,12 @@ namespace TravelPlan.Business_Logic_Layer
             //Form1.TempPlan.Clear();
             MessageBox.Show("저장되었습니다");
             planDateControl1.BringToFront();
-            
+            btnpre.Location = new Point(666, 369);
+            btnpre.Enabled = false;
+            btnNext.Visible = true;
+            btnDone.Visible = false;
+            PageNumber = 0;
+
         }
     }
 }

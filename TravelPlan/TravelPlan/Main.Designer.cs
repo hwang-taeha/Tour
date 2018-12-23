@@ -33,10 +33,12 @@
             this.Sidepanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pboxMain = new System.Windows.Forms.PictureBox();
+            this.btnPlan = new System.Windows.Forms.Button();
             this.btnFestival = new System.Windows.Forms.Button();
             this.btnTraffic = new System.Windows.Forms.Button();
             this.traffic1 = new TravelPlan.Traffic();
             this.festival1 = new TravelPlan.Festival();
+            this.btnHotel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMain)).BeginInit();
@@ -45,6 +47,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
+            this.panel1.Controls.Add(this.btnHotel);
+            this.panel1.Controls.Add(this.btnPlan);
             this.panel1.Controls.Add(this.btnFestival);
             this.panel1.Controls.Add(this.Sidepanel);
             this.panel1.Controls.Add(this.btnTraffic);
@@ -83,6 +87,22 @@
             this.pboxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxMain.TabIndex = 0;
             this.pboxMain.TabStop = false;
+            // 
+            // btnPlan
+            // 
+            this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlan.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPlan.ForeColor = System.Drawing.Color.White;
+            this.btnPlan.Image = global::TravelPlan.Properties.Resources.planner64;
+            this.btnPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlan.Location = new System.Drawing.Point(2, 237);
+            this.btnPlan.Name = "btnPlan";
+            this.btnPlan.Size = new System.Drawing.Size(183, 80);
+            this.btnPlan.TabIndex = 8;
+            this.btnPlan.Text = "스케줄";
+            this.btnPlan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPlan.UseVisualStyleBackColor = true;
+            this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
             // 
             // btnFestival
             // 
@@ -132,6 +152,22 @@
             this.festival1.Size = new System.Drawing.Size(884, 423);
             this.festival1.TabIndex = 2;
             // 
+            // btnHotel
+            // 
+            this.btnHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHotel.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHotel.ForeColor = System.Drawing.Color.White;
+            this.btnHotel.Image = global::TravelPlan.Properties.Resources.home64;
+            this.btnHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHotel.Location = new System.Drawing.Point(3, 157);
+            this.btnHotel.Name = "btnHotel";
+            this.btnHotel.Size = new System.Drawing.Size(183, 80);
+            this.btnHotel.TabIndex = 9;
+            this.btnHotel.Text = "숙소 정보";
+            this.btnHotel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHotel.UseVisualStyleBackColor = true;
+            this.btnHotel.Click += new System.EventHandler(this.btnHotel_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -157,5 +193,7 @@
         internal Traffic traffic1;
         private System.Windows.Forms.Button btnFestival;
         private Festival festival1;
+        private System.Windows.Forms.Button btnPlan;
+        private System.Windows.Forms.Button btnHotel;
     }
 }
