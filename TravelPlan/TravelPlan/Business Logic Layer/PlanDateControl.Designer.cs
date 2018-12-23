@@ -120,7 +120,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblFirstDay;
-        private System.Windows.Forms.Label lblLastDay;
+        internal System.Windows.Forms.Label lblFirstDay;
+        internal System.Windows.Forms.Label lblLastDay;
     }
 }

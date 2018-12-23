@@ -31,9 +31,9 @@ namespace TravelPlan
             this.image = image;
         }
 
-        public Planner(int num, int day, string name, float mapX, float mapY, string loc, string tel, string image) : this(name, mapX, mapY, loc, tel, image)
+        public Planner(int day, string name, float mapX, float mapY, string loc, string tel, string image) : this(name, mapX, mapY, loc, tel, image)
         {
-            this.num = num;
+            
             this.Day = day;
 
         }

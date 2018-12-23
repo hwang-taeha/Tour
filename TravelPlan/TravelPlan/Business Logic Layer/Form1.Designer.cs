@@ -40,9 +40,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.main1 = new TravelPlan.Main();
             this.totalSearch1 = new TravelPlan.TotalSearch();
-            this.planning = new TravelPlan.Business_Logic_Layer.Planning();
+            this.foundRoute1 = new TravelPlan.FoundRoute();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -191,6 +192,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.foundRoute1);
             this.panel3.Controls.Add(this.planning);
             this.panel3.Controls.Add(this.main1);
             this.panel3.Controls.Add(this.totalSearch1);
@@ -199,6 +201,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1073, 423);
             this.panel3.TabIndex = 1;
+            // 
+            // planning
+            // 
+            this.planning.Location = new System.Drawing.Point(0, 0);
+            this.planning.Name = "planning";
+            this.planning.Size = new System.Drawing.Size(1073, 423);
+            this.planning.TabIndex = 2;
+            this.planning.Load += new System.EventHandler(this.planning_Load);
             // 
             // main1
             // 
@@ -216,12 +226,14 @@
             this.totalSearch1.Size = new System.Drawing.Size(1073, 423);
             this.totalSearch1.TabIndex = 0;
             // 
-            // planning
+            // foundRoute1
             // 
-            this.planning.Location = new System.Drawing.Point(0, 0);
-            this.planning.Name = "planning";
-            this.planning.Size = new System.Drawing.Size(1073, 423);
-            this.planning.TabIndex = 2;
+            this.foundRoute1.BackColor = System.Drawing.Color.White;
+            this.foundRoute1.Location = new System.Drawing.Point(-1, 1);
+            this.foundRoute1.Name = "foundRoute1";
+            this.foundRoute1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.foundRoute1.Size = new System.Drawing.Size(1073, 423);
+            this.foundRoute1.TabIndex = 3;
             // 
             // Form1
             // 
@@ -260,6 +272,7 @@
         private Main main1;
         private System.Windows.Forms.Button btnMap;
         private Business_Logic_Layer.Planning planning;
+        private FoundRoute foundRoute1;
     }
 }
 
