@@ -50,9 +50,9 @@
             this.lblLastPage = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.txturl = new System.Windows.Forms.TextBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.lblNowPage = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbCat1
@@ -312,13 +312,6 @@
             this.btnPrev.Visible = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
-            // txturl
-            // 
-            this.txturl.Location = new System.Drawing.Point(555, 18);
-            this.txturl.Name = "txturl";
-            this.txturl.Size = new System.Drawing.Size(460, 21);
-            this.txturl.TabIndex = 25;
-            // 
             // toolTip
             // 
             this.toolTip.AutomaticDelay = 0;
@@ -338,13 +331,28 @@
             this.lblNowPage.TabIndex = 26;
             this.lblNowPage.Text = "label2";
             this.lblNowPage.Visible = false;
-            this.lblNowPage.Enter += new System.EventHandler(this.lblNowPage_Enter);
+            this.lblNowPage.TextChanged += new System.EventHandler(this.lblNowPage_TextChanged);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(636, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(149, 36);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "이동";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // TotalSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txturl);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblLastPage);
@@ -398,8 +406,8 @@
         private System.Windows.Forms.Label lblLastPage;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.TextBox txturl;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.TextBox lblNowPage;
+        private System.Windows.Forms.Button button2;
     }
 }
