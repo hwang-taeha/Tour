@@ -44,13 +44,14 @@
             this.btnStartDib = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.routeInfo1 = new TravelPlan.RouteInfo();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tboxStart
             // 
             this.tboxStart.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tboxStart.Location = new System.Drawing.Point(4, 19);
+            this.tboxStart.Location = new System.Drawing.Point(4, 43);
             this.tboxStart.Name = "tboxStart";
             this.tboxStart.Size = new System.Drawing.Size(188, 23);
             this.tboxStart.TabIndex = 0;
@@ -61,7 +62,7 @@
             // tboxEnd
             // 
             this.tboxEnd.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tboxEnd.Location = new System.Drawing.Point(4, 71);
+            this.tboxEnd.Location = new System.Drawing.Point(4, 95);
             this.tboxEnd.Name = "tboxEnd";
             this.tboxEnd.Size = new System.Drawing.Size(188, 23);
             this.tboxEnd.TabIndex = 1;
@@ -75,7 +76,7 @@
             this.btnFoundRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFoundRoute.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnFoundRoute.ForeColor = System.Drawing.Color.White;
-            this.btnFoundRoute.Location = new System.Drawing.Point(258, 3);
+            this.btnFoundRoute.Location = new System.Drawing.Point(258, 27);
             this.btnFoundRoute.Name = "btnFoundRoute";
             this.btnFoundRoute.Size = new System.Drawing.Size(54, 102);
             this.btnFoundRoute.TabIndex = 2;
@@ -107,7 +108,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(198, 3);
+            this.btnSearch.Location = new System.Drawing.Point(198, 27);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(54, 48);
             this.btnSearch.TabIndex = 3;
@@ -149,7 +150,7 @@
             this.btnEndSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEndSearch.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnEndSearch.ForeColor = System.Drawing.Color.White;
-            this.btnEndSearch.Location = new System.Drawing.Point(198, 57);
+            this.btnEndSearch.Location = new System.Drawing.Point(198, 81);
             this.btnEndSearch.Name = "btnEndSearch";
             this.btnEndSearch.Size = new System.Drawing.Size(54, 48);
             this.btnEndSearch.TabIndex = 8;
@@ -237,11 +238,22 @@
             this.routeInfo1.TabIndex = 0;
             this.routeInfo1.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(4, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 30);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "대중교통 길찾기";
+            // 
             // FoundRoute
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEndDib);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnStartDib);
@@ -284,5 +296,6 @@
         private System.Windows.Forms.Button btnEndDib;
         private System.Windows.Forms.Button btnStartDib;
         private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Label label3;
     }
 }
