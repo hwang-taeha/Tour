@@ -41,15 +41,16 @@
             this.lblTotalPage = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDib = new System.Windows.Forms.Button();
+            this.lblResultText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lvFestival
             // 
             this.lvFestival.FullRowSelect = true;
-            this.lvFestival.Location = new System.Drawing.Point(3, 3);
+            this.lvFestival.Location = new System.Drawing.Point(3, 33);
             this.lvFestival.MultiSelect = false;
             this.lvFestival.Name = "lvFestival";
-            this.lvFestival.Size = new System.Drawing.Size(617, 417);
+            this.lvFestival.Size = new System.Drawing.Size(617, 387);
             this.lvFestival.TabIndex = 0;
             this.lvFestival.UseCompatibleStateImageBehavior = false;
             this.lvFestival.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFestival_MouseDoubleClick);
@@ -180,11 +181,21 @@
             this.btnDib.UseVisualStyleBackColor = false;
             this.btnDib.Click += new System.EventHandler(this.btnDib_Click);
             // 
+            // lblResultText
+            // 
+            this.lblResultText.AutoSize = true;
+            this.lblResultText.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblResultText.Location = new System.Drawing.Point(4, 4);
+            this.lblResultText.Name = "lblResultText";
+            this.lblResultText.Size = new System.Drawing.Size(0, 21);
+            this.lblResultText.TabIndex = 14;
+            // 
             // Festival
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblResultText);
             this.Controls.Add(this.btnDib);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotalPage);
@@ -220,5 +231,6 @@
         private System.Windows.Forms.Label lblTotalPage;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDib;
+        private System.Windows.Forms.Label lblResultText;
     }
 }

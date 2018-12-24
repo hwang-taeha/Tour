@@ -57,8 +57,16 @@ namespace TravelPlan
             var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?ServiceKey=g0bFjmq9pmCLoJqvIGHUrWi%2FemZAn7PEDenAhZEGmwaL5DwzsEL%2FNV3gTWA8auCqFN2l7DzrKCuRMMD2FeSRSg%3D%3D&eventStartDate=" + sDate + "&eventEndDate=" + eDate + "&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&_type=json&arrange=A&numOfRows=12&pageNo=" + pageNo;
 
 
-            GetJson(url);
-            Display(lst, url);
+            try
+            {
+                GetJson(url);
+                Display(lst, url);
+                lblResultText.Text = sDate + "부터 " + eDate + " 까지 진행하는 축제를 출력하였습니다.";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("출력 실패");
+            }
         }
 
         public string GetJson(string url)
