@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TravelPlan
 {
@@ -15,7 +16,10 @@ namespace TravelPlan
 
         public DBConnection()
         {
-            con = new SqlConnection(ConfigurationManager.ConnectionStrings["SQLCon"].ConnectionString);
+            string conStr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Application.StartupPath + @"\Planner.mdf; Integrated Security = True";
+
+            
+            con = new SqlConnection(conStr);
         }
 
         private SqlConnection OpenConnection()

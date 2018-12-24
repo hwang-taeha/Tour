@@ -66,8 +66,14 @@ namespace TravelPlan.Business_Logic_Layer
         {
             if (PageNumber==1)
             {
-                planDateControl1.BringToFront();
-                btnpre.Enabled = false;
+                var mbox= MessageBox.Show("계획이 초기화됩니다.",null,MessageBoxButtons.OKCancel);
+                if (mbox == DialogResult.OK)
+                {
+                    planDateControl1.BringToFront();
+                    btnpre.Enabled = false;
+                    PageNumber--;
+                }
+                
             }
           
             if (PageNumber==2)
@@ -80,8 +86,9 @@ namespace TravelPlan.Business_Logic_Layer
                 btnpre.Location = new Point(666, 369);
                 btnNext.Visible = true;
                 btnDone.Visible = false;
+                PageNumber--;
             }
-            PageNumber--;
+           
         }
 
         private void btnDone_Click(object sender, EventArgs e)
