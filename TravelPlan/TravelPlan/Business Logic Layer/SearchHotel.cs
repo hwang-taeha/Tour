@@ -51,7 +51,43 @@ namespace TravelPlan
             }
             else
             {
-                combo1 = comboBox1.SelectedIndex.ToString(); //1~3
+                combo1 = comboBox1.SelectedIndex.ToString(); //1~3 comboBox1.SelectedValue == combo1
+
+                if (Int32.Parse(combo1) > 8)
+                {
+                    switch (Int32.Parse(combo1))
+                    {
+                        case 9:
+                            combo1 = "31";
+                            break;
+                        case 10:
+                            combo1 = "32";
+                            break;
+                        case 11:
+                            combo1 = "33";
+                            break;
+                        case 12:
+                            combo1 = "34";
+                            break;
+                        case 13:
+                            combo1 = "35";
+                            break;
+                        case 14:
+                            combo1 = "36";
+                            break;
+                        case 15:
+                            combo1 = "37";
+                            break;
+                        case 16:
+                            combo1 = "38";
+                            break;
+                        case 17:
+                            combo1 = "39";
+                            break;
+
+                    }
+                }
+
             }
 
             if (comboBox2.Text == "시군구 선택")
@@ -389,6 +425,40 @@ namespace TravelPlan
                 {
                     combo1 = "";
                 }
+                if (Int32.Parse(combo1) > 8)
+                {
+                    switch (Int32.Parse(combo1))
+                    {
+                        case 9:
+                            combo1 = "31";
+                            break;
+                        case 10:
+                            combo1 = "32";
+                            break;
+                        case 11:
+                            combo1 = "33";
+                            break;
+                        case 12:
+                            combo1 = "34";
+                            break;
+                        case 13:
+                            combo1 = "35";
+                            break;
+                        case 14:
+                            combo1 = "36";
+                            break;
+                        case 15:
+                            combo1 = "37";
+                            break;
+                        case 16:
+                            combo1 = "38";
+                            break;
+                        case 17:
+                            combo1 = "39";
+                            break;
+
+                    }
+                }
 
                 string areaurl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?ServiceKey=pqrGth9gpwF%2FwgDfnF%2BsGUaHY6ZpbTW5YX1Ylw9QDu8MTxh7GxNMqTSFqwmDTC0bJIq2LepwPWJpewR02P7Vqw%3D%3D&numOfRows=50&pageNo=1&MobileOS=ETC&MobileApp=TestApp&areaCode=" + combo1 + "&_type=json";
 
@@ -396,12 +466,12 @@ namespace TravelPlan
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 Stream stream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                string text = reader.ReadToEnd();
+                string text = reader.ReadToEnd().Replace("<b>", "").Replace("</b>", "").Replace("|", ",");
                 JObject jobj = JObject.Parse(text);
                 try
                 {
-                    JArray jArray = JArray.Parse(jobj["response"]["body"]["items"]["item"].ToString());
-                    foreach (JObject item in jArray)
+                    JArray jarray = JArray.Parse(jobj["response"]["body"]["items"]["item"].ToString());
+                    foreach (JObject item in jarray)
                     {
                         comboBox2.Items.Add(item["name"].ToString());
                     }
@@ -442,4 +512,3 @@ namespace TravelPlan
         }
     }
 }
-

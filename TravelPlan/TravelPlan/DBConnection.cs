@@ -16,7 +16,7 @@ namespace TravelPlan
 
         public DBConnection()
         {
-            string conStr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Application.StartupPath + @"\Planner.mdf; Integrated Security = True";
+            string conStr = @"Data Source=192.168.0.2;Initial Catalog=Lotto_DB;User ID=Lotto_SJM;Password=1234";
 
             
             con = new SqlConnection(conStr);
