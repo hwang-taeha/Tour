@@ -197,6 +197,47 @@ namespace TravelPlan
             }
         }
 
+        private void btnStartDib_Click(object sender, EventArgs e)
+        {
+            if (lvDibList.SelectedItems.Count != 0)
+            {
+                tboxStart.Text = lvDibList.SelectedItems[0].SubItems[0].Text;
 
+                startmapX = double.Parse(lvDibList.SelectedItems[0].SubItems[1].Text);
+                startmapY = double.Parse(lvDibList.SelectedItems[0].SubItems[2].Text);
+                MessageBox.Show("완료");
+            }
+            else
+            {
+                MessageBox.Show("출발지를 선택해주세요.");
+            }
+        }
+
+        private void btnEndDib_Click(object sender, EventArgs e)
+        {
+            if (lvDibList.SelectedItems.Count != 0)
+            {
+                tboxEnd.Text = lvDibList.SelectedItems[0].SubItems[0].Text;
+
+                endmapX = double.Parse(lvDibList.SelectedItems[0].SubItems[1].Text);
+                endmapY = double.Parse(lvDibList.SelectedItems[0].SubItems[2].Text);
+                MessageBox.Show("완료");
+            }
+            else
+            {
+                MessageBox.Show("도착지를 선택해주세요.");
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            lvDibList.Items.Clear();
+
+            lvDibList.View = View.List;
+            foreach (var item in Form1.TempPlan)
+            {
+                lvDibList.Items.Add(new ListViewItem(new string[] { item.Name, item.MapX.ToString(), item.MapY.ToString() }));
+            }
+        }
     }
 }
