@@ -107,55 +107,74 @@
       <DependentUpon>Planning.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
-    <Compile Include="Festival.cs">
+    <Compile Include="Business Logic Layer\DBschedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Festival.Designer.cs">
+    <Compile Include="Business Logic Layer\DBschedule.Designer.cs">
+      <DependentUpon>DBschedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business Logic Layer\Festival.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Business Logic Layer\Festival.Designer.cs">
       <DependentUpon>Festival.cs</DependentUpon>
     </Compile>
-    <Compile Include="FestivalDetails.cs">
+    <Compile Include="Business Logic Layer\FestivalDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FestivalDetails.Designer.cs">
+    <Compile Include="Business Logic Layer\FestivalDetails.Designer.cs">
       <DependentUpon>FestivalDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="FestivalInfo.cs" />
-    <Compile Include="FoundRoot.cs">
+    <Compile Include="Business Logic Layer\FestivalInfo.cs" />
+    <Compile Include="Business Logic Layer\FoundRoute.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FoundRoot.Designer.cs">
-      <DependentUpon>FoundRoot.cs</DependentUpon>
+    <Compile Include="Business Logic Layer\FoundRoute.Designer.cs">
+      <DependentUpon>FoundRoute.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPlusPlan.cs">
+    <Compile Include="Business Logic Layer\FrmPlusPlan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPlusPlan.Designer.cs">
+    <Compile Include="Business Logic Layer\FrmPlusPlan.Designer.cs">
       <DependentUpon>FrmPlusPlan.cs</DependentUpon>
     </Compile>
     <Compile Include="IPlanner.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="Business Logic Layer\Main.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="Business Logic Layer\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Planner.cs" />
     <Compile Include="DataAccess Layer\PlannerDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchResult.cs" />
-    <Compile Include="TotalSearch.cs">
+    <Compile Include="Business Logic Layer\RouteInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TotalSearch.Designer.cs">
+    <Compile Include="Business Logic Layer\RouteInfo.Designer.cs">
+      <DependentUpon>RouteInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business Logic Layer\SearchHotel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Business Logic Layer\SearchHotel.Designer.cs">
+      <DependentUpon>SearchHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business Logic Layer\SearchResult.cs" />
+    <Compile Include="Business Logic Layer\TotalSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Business Logic Layer\TotalSearch.Designer.cs">
       <DependentUpon>TotalSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Traffic.cs">
+    <Compile Include="Business Logic Layer\Traffic.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Traffic.Designer.cs">
+    <Compile Include="Business Logic Layer\Traffic.Designer.cs">
       <DependentUpon>Traffic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business Logic Layer\UserData.cs" />
     <EmbeddedResource Include="Business Logic Layer\CompletePlan.resx">
       <DependentUpon>CompletePlan.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,19 +184,28 @@
     <EmbeddedResource Include="Business Logic Layer\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\PlanCheck.resx">
+      <DependentUpon>PlanCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\PlanDateControl.resx">
+      <DependentUpon>PlanDateControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business Logic Layer\Planning.resx">
       <DependentUpon>Planning.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Festival.resx">
+    <EmbeddedResource Include="Business Logic Layer\DBschedule.resx">
+      <DependentUpon>DBschedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\Festival.resx">
       <DependentUpon>Festival.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FestivalDetails.resx">
+    <EmbeddedResource Include="Business Logic Layer\FestivalDetails.resx">
       <DependentUpon>FestivalDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FoundRoot.resx">
-      <DependentUpon>FoundRoot.cs</DependentUpon>
+    <EmbeddedResource Include="Business Logic Layer\FoundRoute.resx">
+      <DependentUpon>FoundRoute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Business Logic Layer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -190,10 +218,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TotalSearch.resx">
+    <EmbeddedResource Include="Business Logic Layer\RouteInfo.resx">
+      <DependentUpon>RouteInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\SearchHotel.resx">
+      <DependentUpon>SearchHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\TotalSearch.resx">
       <DependentUpon>TotalSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Traffic.resx">
+    <EmbeddedResource Include="Business Logic Layer\Traffic.resx">
       <DependentUpon>Traffic.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="json1.json" />
@@ -220,6 +254,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Planner.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\main22.jpg" />
     <None Include="Resources\car48.png" />
     <None Include="Resources\map64.png" />
     <None Include="Resources\search64.png" />

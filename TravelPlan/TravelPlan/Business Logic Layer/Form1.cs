@@ -73,6 +73,8 @@ namespace TravelPlan
         {
             bottomPanel.Width = btnMap.Width;
             bottomPanel.Left = btnMap.Left;
+            foundRoute1.BringToFront();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -80,6 +82,11 @@ namespace TravelPlan
             bottomPanel.Width = btnHome.Width;
             bottomPanel.Left = btnHome.Left;
             main1.BringToFront();
+
+        }
+
+        private void planning_Load(object sender, EventArgs e)
+        {
 
         }
     }

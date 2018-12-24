@@ -35,7 +35,7 @@ namespace TravelPlan
 
             foreach (DataRow item in dt.Rows)
             {
-                lst.Add(new Planner(Int32.Parse(item["num"].ToString()), Int32.Parse(item["day"].ToString()), item["name"].ToString(), Int32.Parse(item["mapx"].ToString()), Int32.Parse(item["mapy"].ToString()), item["loc"].ToString(), item["tel"].ToString(), item["image"].ToString()));
+                lst.Add(new Planner( Int32.Parse(item["day"].ToString()), item["name"].ToString(), Int32.Parse(item["mapx"].ToString()), Int32.Parse(item["mapy"].ToString()), item["loc"].ToString(), item["tel"].ToString(), item["image"].ToString()));
             }
 
             return lst;
@@ -45,7 +45,7 @@ namespace TravelPlan
         {
             string proc = "InsertPlanner";
             bool result = false;
-
+            con = new DBConnection();
             SqlParameter[] sqlParameters = new SqlParameter[7];
 
             sqlParameters[0] = new SqlParameter("day", p.Day);

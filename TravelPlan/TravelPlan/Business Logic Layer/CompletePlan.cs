@@ -31,41 +31,21 @@ namespace TravelPlan.Business_Logic_Layer
 
         internal void Start()
         {
-            // TempListUpdate(int.Parse(cbDay.Text));
-
-
-            //for (int i = 0; i < imageList.Length; i++)
-            //{
-            //    imageList[i].Images.Clear();
-            //}
+            flowLayoutPanel1.Controls.Clear();
             DaysPlan[] days = new DaysPlan[Form1.DayPlan.Count];
-
+            flowLayoutPanel1.Controls.Clear();
             //Day별로
             for (int i = 0; i < Form1.DayPlan.Count; i++)
             {
                 //Form1.ImageList[i] = new ImageList();
+               
                 days[i] = new DaysPlan();
                 flowLayoutPanel1.Controls.Add(days[i]);
 
                 days[i].Location = new Point(0, 0);
                 //days[i].Location = new Point(100, 35+ 175 * i);
                 days[i].lblDay.Text = (i + 1) + "Day";
-                // 하루기준 아이템들보여주기
-                //foreach (var item in Form1.DayPlan[i])
-                //{
-                //    WebRequest req = WebRequest.Create(item.Image);
-                //    WebResponse resp = req.GetResponse();
-
-
-                //    Stream stream = resp.GetResponseStream();
-
-                //    Image img = Image.FromStream(stream);
-
-                //    Form1.ImageList[i].Images.Add(i + item.Name, img);
-                //    Form1.ImageList[i].ImageSize = new Size(64, 64);
-
-
-                //}
+                
                 days[i].lvPlans.LargeImageList = Form1.ImageList[i];
                 days[i].lvPlans.Columns.Add("그림", 200, HorizontalAlignment.Center);
                 days[i].lvPlans.Columns.Add("설명", 200, HorizontalAlignment.Center);
