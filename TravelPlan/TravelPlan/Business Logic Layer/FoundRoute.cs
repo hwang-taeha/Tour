@@ -47,7 +47,7 @@ namespace TravelPlan
 
                     var infoitems = JArray.Parse(jObj["result"]["path"].ToString());
 
-
+                    lblResultText.Text = "검색결과 개수 : " + ResultCount + " 개";
 
                     RouteInfo[] ri = new RouteInfo[ResultCount];
                     //동적 유저컨트롤 생성

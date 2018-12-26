@@ -43,8 +43,9 @@
             this.btnEndDib = new System.Windows.Forms.Button();
             this.btnStartDib = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
-            this.routeInfo1 = new TravelPlan.RouteInfo();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblResultText = new System.Windows.Forms.Label();
+            this.routeInfo1 = new TravelPlan.RouteInfo();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,10 +88,9 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.routeInfo1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(318, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(318, 27);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(755, 423);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(755, 396);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // lvSearchResult
@@ -229,15 +229,6 @@
             this.btnReload.UseVisualStyleBackColor = false;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
-            // routeInfo1
-            // 
-            this.routeInfo1.Enabled = false;
-            this.routeInfo1.Location = new System.Drawing.Point(42, 3);
-            this.routeInfo1.Name = "routeInfo1";
-            this.routeInfo1.Size = new System.Drawing.Size(710, 117);
-            this.routeInfo1.TabIndex = 0;
-            this.routeInfo1.Visible = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -248,11 +239,30 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "대중교통 길찾기";
             // 
+            // lblResultText
+            // 
+            this.lblResultText.AutoSize = true;
+            this.lblResultText.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblResultText.Location = new System.Drawing.Point(384, 3);
+            this.lblResultText.Name = "lblResultText";
+            this.lblResultText.Size = new System.Drawing.Size(0, 21);
+            this.lblResultText.TabIndex = 15;
+            // 
+            // routeInfo1
+            // 
+            this.routeInfo1.Enabled = false;
+            this.routeInfo1.Location = new System.Drawing.Point(42, 3);
+            this.routeInfo1.Name = "routeInfo1";
+            this.routeInfo1.Size = new System.Drawing.Size(710, 117);
+            this.routeInfo1.TabIndex = 0;
+            this.routeInfo1.Visible = false;
+            // 
             // FoundRoute
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblResultText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEndDib);
             this.Controls.Add(this.btnReload);
@@ -297,5 +307,6 @@
         private System.Windows.Forms.Button btnStartDib;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblResultText;
     }
 }
