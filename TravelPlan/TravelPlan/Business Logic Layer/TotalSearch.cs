@@ -600,38 +600,72 @@ namespace TravelPlan
         private void listView1_MouseMove(object sender, MouseEventArgs e)
         {
 
-            x = e.Location.X;
-            y = e.Location.Y;
-            if ((p.X < x && x<p.X+150 && p.Y < y && y< p.Y+100))
+            try
             {
-                toolTip.Show("주소 : " + plannerList[index].Loc + "\n전화번호 : " + plannerList[index].Tel, listView1, new Point(x, y));
+                if (listView1.Items.Count > 0)
+                {
+                    x = e.Location.X;
+                    y = e.Location.Y;
+                    if ((p.X < x && x < p.X + 150 && p.Y < y && y < p.Y + 100))
+                    {
+                        toolTip.Show("주소 : " + plannerList[index].Loc + "\n전화번호 : " + plannerList[index].Tel, listView1, new Point(x, y));
+                    }
+                    else
+                    {
+                        toolTip.RemoveAll();
+                    }
+                }
             }
-            else
+            catch (ArgumentOutOfRangeException)
             {
-                toolTip.RemoveAll();
+                throw;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Int32.Parse(lblNowPage.Text) >= 1 && Int32.Parse(lblNowPage.Text) < Int32.Parse(lblLastPage.Text))
+            try
             {
-                int i = Int32.Parse(lblNowPage.Text);
-                string moveUrl_Old = "&pageNo=" + pageNo;
-                string moveUrl_New = "&pageNo=" + i;
-                pageNo = i + "";
-                moveUrl = moveUrl.Replace(moveUrl_Old, moveUrl_New);
-                ListViewShow(moveUrl);
+                if (Int32.Parse(lblNowPage.Text) >= 1 && Int32.Parse(lblNowPage.Text) <= Int32.Parse(lblLastPage.Text))
+                {
+                    int i = Int32.Parse(lblNowPage.Text);
+                    string moveUrl_Old = "&pageNo=" + pageNo;
+                    string moveUrl_New = "&pageNo=" + i;
+                    pageNo = i + "";
+                    moveUrl = moveUrl.Replace(moveUrl_Old, moveUrl_New);
+                    ListViewShow(moveUrl);
+                }
+                else
+                {
+                    MessageBox.Show("범위 초과되었습니다.");
+                    lblNowPage.Text = pageNo;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("숫자를 입력해주세요");
             }
         }
 
         private void lblNowPage_TextChanged(object sender, EventArgs e)
         {
-            if(Int32.Parse(lblNowPage.Text)<1 && Int32.Parse(lblNowPage.Text)>Int32.Parse(lblLastPage.Text))
+            try
             {
-                lblNowPage.Text = 1 + "";
-                MessageBox.Show("1~"+lblLastPage.Text+"");
+                if (Int32.Parse(lblNowPage.Text) < 1 && Int32.Parse(lblNowPage.Text) > Int32.Parse(lblLastPage.Text))
+                {
+                    lblNowPage.Text = 1 + "";
+                    MessageBox.Show("1~" + lblLastPage.Text + "");
+                }
             }
+            catch (Exception)
+            {
+                lblNowPage.Text = pageNo;
+            }
+            
+            
+            
+            
+
         }
     }
 }
