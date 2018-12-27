@@ -547,6 +547,7 @@ namespace TravelPlan
                         if (!Form1.TempPlan.Contains(item))
                         {
                             Form1.TempPlan.Add(item);
+                            MessageBox.Show("추가되었습니다.");
                         }
                         else
                         {
