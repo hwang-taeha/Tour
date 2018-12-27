@@ -327,7 +327,7 @@ namespace TravelPlan
 
             url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/" + code + "serviceKey=" +
                 "giAYw8bKervyOuF0mqTCfUrDqkwFOMG7qFBjOgPhuSjDDXMZ6HSNyiTZMyiO7JLZYcB6b9dlJc7nuSkZgXf9pw%3D%3D&keyword=" + keyword +
-                "&areaCode=" + area + "&sigunguCode=" + sigungu + "&cat1=" + cat1 + "&cat2=" + cat2 + "&cat3=" + cat3 + "&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=10&pageNo=" + pageNo + "&startPage=1&pageSize=10&_type=json";
+                "&areaCode=" + area + "&sigunguCode=" + sigungu + "&cat1=" + cat1 + "&cat2=" + cat2 + "&cat3=" + cat3 + "&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=10&pageNo=" + pageNo + "&startPage=1&pageSize=10&overviewYN=Y&_type=json";
 
             moveUrl = url;
             ListViewShow(url);
@@ -363,12 +363,12 @@ namespace TravelPlan
             }
             if (jArray_ListViewUpload.Count > 0)
             {
-                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible =btnPrev.Visible=btnNext.Visible= button2.Visible=true;
+                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible =btnPrev.Visible=btnNext.Visible= button2.Visible=lbl1.Visible= btnBasket.Visible=true;
                 lblNowPage.Text = pageNo;
             }
             else
             {
-                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible = btnPrev.Visible = btnNext.Visible = button2.Visible = false;
+                lblLastPage.Visible = lblNowPage.Visible = lblSlush.Visible = btnPrev.Visible = btnNext.Visible = button2.Visible = lbl1.Visible=btnBasket.Visible = false;
             }
             listView1.Clear();
             //listView1.LargeImageList.Images.Clear();
@@ -537,21 +537,28 @@ namespace TravelPlan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            foreach (var item in plannerList)
+
+            try
             {
-                if (item.Name == listView1.SelectedItems[0].Text)
+                foreach (var item in plannerList)
                 {
-                    if (!Form1.TempPlan.Contains(item))
+                    if (item.Name == listView1.SelectedItems[0].Text)
                     {
-                        Form1.TempPlan.Add(item);
+                        if (!Form1.TempPlan.Contains(item))
+                        {
+                            Form1.TempPlan.Add(item);
+                        }
+                        else
+                        {
+                            MessageBox.Show("이미 추가되었습니다!");
+                        }
+
                     }
-                    else
-                    {
-                        MessageBox.Show("이미 추가되었습니다!");
-                    }
-                    
                 }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("리스트를 먼저 선택해주세요.");
             }
         }
 
