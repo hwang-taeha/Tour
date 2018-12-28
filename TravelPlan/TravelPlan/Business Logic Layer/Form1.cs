@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelPlan.Business_Logic_Layer;
 
 namespace TravelPlan
 {
@@ -28,7 +29,9 @@ namespace TravelPlan
         public Form1()
         {
             InitializeComponent();
-            
+        //    PlanApp planApp = new PlanApp();
+        //    this.Controls.Add(planApp);
+        //    planApp.BringToFront();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -82,12 +85,38 @@ namespace TravelPlan
             bottomPanel.Width = btnHome.Width;
             bottomPanel.Left = btnHome.Left;
             main1.BringToFront();
+            ttHome.SetToolTip(this.btnHome, "홈으로 이동하기");
+            ttSearch.SetToolTip(this.btnSearch, "통합검색");
+            ttPlan.SetToolTip(this.btnPlan,"여행 계획 짜기");
+            ttmap.SetToolTip(this.btnMap, "지도 보기");
 
         }
 
         private void planning_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ttHome_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+        //ToolTip toolTip = new ToolTip();
+        //Point mouse = new Point();
+        private void btnHome_MouseMove(object sender, MouseEventArgs e)
+        {
+            //mouse.X = e.X;
+            //mouse.Y = e.Y;
+            
+            //if ((btnHome.Location.X+btnHome.Width) >mouse.X || mouse.X > btnHome.Location.X && mouse.Y>btnHome.Location.Y || mouse.Y<btnHome.Location.Y +btnHome.Height )
+            //{
+            //    toolTip.Show("홈 화면으로 이동",btnHome , e.X, e.Y);
+            //}
+            //else
+            //{
+            //    toolTip.RemoveAll();
+            //}
+            
         }
     }
 }

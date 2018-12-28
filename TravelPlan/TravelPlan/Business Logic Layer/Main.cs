@@ -25,8 +25,9 @@ namespace TravelPlan
             if (dBschedule != null)
             {
                 dBschedule.Dispose();
+                this.Controls.RemoveByKey("dBschedule");
             }
-            
+
         }
 
         private void btnFestival_Click(object sender, EventArgs e)
@@ -38,19 +39,22 @@ namespace TravelPlan
             if (dBschedule != null)
             {
                 dBschedule.Dispose();
+                this.Controls.RemoveByKey("dBschedule");
             }
         }
 
         private void btnPlan_Click(object sender, EventArgs e)
         {
+
             dBschedule = new DBschedule();
+
 
             Sidepanel.Visible = true;
             Sidepanel.Height = btnPlan.Height;
-            
+
             this.Controls.Add(dBschedule);
             dBschedule.BringToFront();
-            
+
         }
 
         private void btnHotel_Click(object sender, EventArgs e)
@@ -59,6 +63,7 @@ namespace TravelPlan
             if (dBschedule != null)
             {
                 dBschedule.Dispose();
+                this.Controls.RemoveByKey("dBschedule");
             }
             //SearchHotel searchHotel = new SearchHotel();
             //this.Controls.Add(searchHotel);

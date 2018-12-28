@@ -65,3 +65,4 @@ C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.csproj.CopyComplete
 C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.exe
 C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.pdb
 C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.FrmPlusPlan.resources
+C:\Tour\TravelPlan\TravelPlan\obj\Debug\TravelPlan.Business_Logic_Layer.PlanApp.resources

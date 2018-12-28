@@ -36,7 +36,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(652, 338);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(659, 338);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // CompletePlan
@@ -46,7 +46,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Location = new System.Drawing.Point(115, 54);
             this.Name = "CompletePlan";
-            this.Size = new System.Drawing.Size(652, 338);
+            this.Size = new System.Drawing.Size(659, 338);
             this.Load += new System.EventHandler(this.CompletePlan_Load);
             this.ResumeLayout(false);
 

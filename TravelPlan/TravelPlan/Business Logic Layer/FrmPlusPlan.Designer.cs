@@ -35,6 +35,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.totalSearch1 = new TravelPlan.TotalSearch();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,12 +77,15 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(682, 385);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(213)))), ((int)(((byte)(181)))));
+            this.button2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(0, 540);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 53);
+            this.button2.Size = new System.Drawing.Size(1169, 36);
             this.button2.TabIndex = 5;
             this.button2.Text = "완료";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
@@ -91,7 +95,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 48);
+            this.panel1.Size = new System.Drawing.Size(1169, 48);
             this.panel1.TabIndex = 6;
             // 
             // label1
@@ -105,12 +109,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "여행지 찜하기";
             // 
+            // totalSearch1
+            // 
+            this.totalSearch1.Location = new System.Drawing.Point(0, 48);
+            this.totalSearch1.Name = "totalSearch1";
+            this.totalSearch1.Size = new System.Drawing.Size(1169, 486);
+            this.totalSearch1.TabIndex = 7;
+            // 
             // FrmPlusPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1169, 577);
+            this.Controls.Add(this.totalSearch1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private TotalSearch totalSearch1;
     }
 }

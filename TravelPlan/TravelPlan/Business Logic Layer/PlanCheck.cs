@@ -17,7 +17,7 @@ namespace TravelPlan
         public PlanCheck()
         {
             InitializeComponent();
-
+            
         }
         ImageList imageList = new ImageList();
         ImageList imageListForPlan = new ImageList();
@@ -42,6 +42,7 @@ namespace TravelPlan
                 Stream stream = resp.GetResponseStream();
                 Image img = Image.FromStream(stream);
                 imageList.Images.Add(img);
+                
             }
 
             listView2.LargeImageList = imageList;

@@ -20,9 +20,6 @@ namespace TravelPlan
         public FrmPlusPlan()
         {
             InitializeComponent();
-            VScrollBar vScrollBar = new VScrollBar();
-            vScrollBar.Dock = DockStyle.Right;
-            this.Controls.Add(vScrollBar);
 
         }
         List<Planner> tempPlanners = new List<Planner>();
