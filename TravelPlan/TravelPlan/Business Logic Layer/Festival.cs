@@ -26,6 +26,9 @@ namespace TravelPlan
         static string addr;
         static string tel;
         static string image;
+        static float mapx;
+        static float mapy;
+        
 
 
         string contentid = "";
@@ -57,8 +60,16 @@ namespace TravelPlan
             var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?ServiceKey=g0bFjmq9pmCLoJqvIGHUrWi%2FemZAn7PEDenAhZEGmwaL5DwzsEL%2FNV3gTWA8auCqFN2l7DzrKCuRMMD2FeSRSg%3D%3D&eventStartDate=" + sDate + "&eventEndDate=" + eDate + "&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&_type=json&arrange=A&numOfRows=12&pageNo=" + pageNo;
 
 
-            GetJson(url);
-            Display(lst, url);
+            try
+            {
+                GetJson(url);
+                Display(lst, url);
+                lblResultText.Text = sDate + "부터 " + eDate + " 까지 진행하는 축제를 출력하였습니다.";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("출력 실패");
+            }
         }
 
         public string GetJson(string url)
@@ -91,6 +102,8 @@ namespace TravelPlan
             string addr1 = "";
             string eventstartdate = "";
             string eventenddate = "";
+            float mapx = 0;
+            float mapy = 0;
 
             string contentid = "";
             string contenttypeid = "";
@@ -186,6 +199,23 @@ namespace TravelPlan
                 {
                     contenttypeid = "";
                 }
+                if (item.ContainsKey("mapx"))
+                {
+                    mapx = float.Parse(item["mapx"].ToString());
+                }
+                else if (item.ContainsKey("mapx") == false)
+                {
+                    mapx = 0;
+                }
+                if (item.ContainsKey("mapy"))
+                {
+                    mapy = float.Parse(item["mapy"].ToString());
+                }
+                else if (item.ContainsKey("mapy") == false)
+                {
+                    mapy = 0;
+                }
+
                 WebRequest req = WebRequest.Create(image);
                 WebResponse resp = req.GetResponse();
 
@@ -194,7 +224,7 @@ namespace TravelPlan
                 imglist.Images.Add(img);
                 
                 
-                lst.Add(new FestivalInfo(image, title, addr1, contentid, contenttypeid, eventstartdate, eventenddate, tel));
+                lst.Add(new FestivalInfo(image, title, addr1, contentid, contenttypeid, eventstartdate, eventenddate, tel, mapx, mapy));
                 
             }
             
@@ -278,11 +308,13 @@ namespace TravelPlan
                         addr = item.Addr1;
                         tel = item.Tel;
                         image = item.Image;
+                        mapx = item.MapX;
+                        mapy = item.MapY;
                     }
                 }
                 try
                 {
-                    Form1.TempPlan.Add(new Planner(name, 0, 0, addr, tel, image));
+                    Form1.TempPlan.Add(new Planner(name, mapx, mapy, addr, tel, image));
                     MessageBox.Show("찜목록에 추가되었습니다.");
                 }
                 catch (Exception)

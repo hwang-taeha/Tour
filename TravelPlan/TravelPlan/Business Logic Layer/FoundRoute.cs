@@ -40,39 +40,46 @@ namespace TravelPlan
                 //textBox3.Text = GetJson(url);
                 var jObj = JObject.Parse(GetJson(url));
 
-                //결과 총 개수
-                int ResultCount = Int32.Parse(jObj["result"]["subwayCount"].ToString()) + Int32.Parse(jObj["result"]["busCount"].ToString()) + Int32.Parse(jObj["result"]["subwayBusCount"].ToString());
-
-                var infoitems = JArray.Parse(jObj["result"]["path"].ToString());
-
-
-
-                RouteInfo[] ri = new RouteInfo[ResultCount];
-                //동적 유저컨트롤 생성
-                for (int i = 0; i < ResultCount; i++)
+                try
                 {
-                    ri[i] = new RouteInfo();
-                    ri[i].Location = new Point(0, 0);
-                    flowLayoutPanel1.Controls.Add(ri[i]);
-                    ri[i].lblCount.Text = "경로" + (i + 1);
+                    //결과 총 개수
+                    int ResultCount = Int32.Parse(jObj["result"]["subwayCount"].ToString()) + Int32.Parse(jObj["result"]["busCount"].ToString()) + Int32.Parse(jObj["result"]["subwayBusCount"].ToString());
+
+                    var infoitems = JArray.Parse(jObj["result"]["path"].ToString());
+
+                    lblResultText.Text = "검색결과 개수 : " + ResultCount + " 개";
+
+                    RouteInfo[] ri = new RouteInfo[ResultCount];
+                    //동적 유저컨트롤 생성
+                    for (int i = 0; i < ResultCount; i++)
+                    {
+                        ri[i] = new RouteInfo();
+                        ri[i].Location = new Point(0, 0);
+                        flowLayoutPanel1.Controls.Add(ri[i]);
+                        ri[i].lblCount.Text = "경로" + (i + 1);
+                    }
+
+                    for (int i = 0; i < infoitems.Count; i++)
+                    {
+                        ri[i].lblTime.Text = infoitems[i]["info"]["totalTime"].ToString() + "분";
+
+                        //요금
+                        ri[i].lblPayment.Text = infoitems[i]["info"]["payment"].ToString() + "원";
+
+                        ri[i].lblStartStation.Text = infoitems[i]["info"]["firstStartStation"].ToString() + " 승차";
+                        ri[i].lblEndStation.Text = infoitems[i]["info"]["lastEndStation"].ToString() + " 하차";
+
+                        //버정, 역 개수
+                        ri[i].lblBusStationCount.Text = "버스정류장 " + infoitems[i]["info"]["busStationCount"].ToString() + "개";
+                        ri[i].lblSubStationCount.Text = "지하철역 " + infoitems[i]["info"]["subwayStationCount"].ToString() + "개";
+
+                        //총길이
+                        ri[i].lblDistance.Text = "총 " + double.Parse(infoitems[i]["info"]["totalDistance"].ToString()) / 1000 + "km";
+                    }
                 }
-
-                for (int i = 0; i < infoitems.Count; i++)
+                catch (NullReferenceException)
                 {
-                    ri[i].lblTime.Text = infoitems[i]["info"]["totalTime"].ToString() + "분";
-
-                    //요금
-                    ri[i].lblPayment.Text = infoitems[i]["info"]["payment"].ToString() + "원";
-
-                    ri[i].lblStartStation.Text = infoitems[i]["info"]["firstStartStation"].ToString() + " 승차";
-                    ri[i].lblEndStation.Text = infoitems[i]["info"]["lastEndStation"].ToString() + " 하차";
-
-                    //버정, 역 개수
-                    ri[i].lblBusStationCount.Text = "버스정류장 " + infoitems[i]["info"]["busStationCount"].ToString() + "개";
-                    ri[i].lblSubStationCount.Text = "지하철역 " + infoitems[i]["info"]["subwayStationCount"].ToString() + "개";
-
-                    //총길이
-                    ri[i].lblDistance.Text = "총 " + double.Parse(infoitems[i]["info"]["totalDistance"].ToString()) / 1000 + "km";
+                    MessageBox.Show("경로를 찾을 수 없습니다.");
                 }
             }
             else
@@ -190,6 +197,47 @@ namespace TravelPlan
             }
         }
 
+        private void btnStartDib_Click(object sender, EventArgs e)
+        {
+            if (lvDibList.SelectedItems.Count != 0)
+            {
+                tboxStart.Text = lvDibList.SelectedItems[0].SubItems[0].Text;
 
+                startmapX = double.Parse(lvDibList.SelectedItems[0].SubItems[1].Text);
+                startmapY = double.Parse(lvDibList.SelectedItems[0].SubItems[2].Text);
+                MessageBox.Show("완료");
+            }
+            else
+            {
+                MessageBox.Show("출발지를 선택해주세요.");
+            }
+        }
+
+        private void btnEndDib_Click(object sender, EventArgs e)
+        {
+            if (lvDibList.SelectedItems.Count != 0)
+            {
+                tboxEnd.Text = lvDibList.SelectedItems[0].SubItems[0].Text;
+
+                endmapX = double.Parse(lvDibList.SelectedItems[0].SubItems[1].Text);
+                endmapY = double.Parse(lvDibList.SelectedItems[0].SubItems[2].Text);
+                MessageBox.Show("완료");
+            }
+            else
+            {
+                MessageBox.Show("도착지를 선택해주세요.");
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            lvDibList.Items.Clear();
+
+            lvDibList.View = View.List;
+            foreach (var item in Form1.TempPlan)
+            {
+                lvDibList.Items.Add(new ListViewItem(new string[] { item.Name, item.MapX.ToString(), item.MapY.ToString() }));
+            }
+        }
     }
 }

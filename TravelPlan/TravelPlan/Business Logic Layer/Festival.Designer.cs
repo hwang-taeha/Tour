@@ -41,15 +41,17 @@
             this.lblTotalPage = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDib = new System.Windows.Forms.Button();
+            this.lblResultText = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lvFestival
             // 
             this.lvFestival.FullRowSelect = true;
-            this.lvFestival.Location = new System.Drawing.Point(3, 3);
+            this.lvFestival.Location = new System.Drawing.Point(3, 33);
             this.lvFestival.MultiSelect = false;
             this.lvFestival.Name = "lvFestival";
-            this.lvFestival.Size = new System.Drawing.Size(617, 417);
+            this.lvFestival.Size = new System.Drawing.Size(617, 387);
             this.lvFestival.TabIndex = 0;
             this.lvFestival.UseCompatibleStateImageBehavior = false;
             this.lvFestival.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFestival_MouseDoubleClick);
@@ -89,7 +91,7 @@
             this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrev.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnPrev.ForeColor = System.Drawing.Color.White;
-            this.btnPrev.Location = new System.Drawing.Point(630, 374);
+            this.btnPrev.Location = new System.Drawing.Point(667, 374);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(76, 34);
             this.btnPrev.TabIndex = 5;
@@ -103,7 +105,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(734, 374);
+            this.btnNext.Location = new System.Drawing.Point(771, 374);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(76, 34);
             this.btnNext.TabIndex = 6;
@@ -142,7 +144,7 @@
             // 
             this.lblNowPage.AutoSize = true;
             this.lblNowPage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblNowPage.Location = new System.Drawing.Point(679, 340);
+            this.lblNowPage.Location = new System.Drawing.Point(716, 340);
             this.lblNowPage.Name = "lblNowPage";
             this.lblNowPage.Size = new System.Drawing.Size(0, 17);
             this.lblNowPage.TabIndex = 10;
@@ -151,7 +153,7 @@
             // 
             this.lblTotalPage.AutoSize = true;
             this.lblTotalPage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTotalPage.Location = new System.Drawing.Point(737, 340);
+            this.lblTotalPage.Location = new System.Drawing.Point(774, 340);
             this.lblTotalPage.Name = "lblTotalPage";
             this.lblTotalPage.Size = new System.Drawing.Size(0, 17);
             this.lblTotalPage.TabIndex = 11;
@@ -160,7 +162,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(715, 339);
+            this.label3.Location = new System.Drawing.Point(752, 339);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 17);
             this.label3.TabIndex = 12;
@@ -180,11 +182,31 @@
             this.btnDib.UseVisualStyleBackColor = false;
             this.btnDib.Click += new System.EventHandler(this.btnDib_Click);
             // 
+            // lblResultText
+            // 
+            this.lblResultText.AutoSize = true;
+            this.lblResultText.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblResultText.Location = new System.Drawing.Point(4, 4);
+            this.lblResultText.Name = "lblResultText";
+            this.lblResultText.Size = new System.Drawing.Size(0, 21);
+            this.lblResultText.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(628, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(253, 12);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "해당 축제 클릭 시 상세정보를 볼 수 있습니다.";
+            // 
             // Festival
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblResultText);
             this.Controls.Add(this.btnDib);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotalPage);
@@ -220,5 +242,7 @@
         private System.Windows.Forms.Label lblTotalPage;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDib;
+        private System.Windows.Forms.Label lblResultText;
+        private System.Windows.Forms.Label label4;
     }
 }
