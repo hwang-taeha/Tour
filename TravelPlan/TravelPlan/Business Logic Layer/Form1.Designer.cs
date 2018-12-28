@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMap = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
@@ -40,10 +41,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.ttHome = new System.Windows.Forms.ToolTip(this.components);
             this.foundRoute1 = new TravelPlan.FoundRoute();
             this.planning = new TravelPlan.Business_Logic_Layer.Planning();
             this.main1 = new TravelPlan.Main();
             this.totalSearch1 = new TravelPlan.TotalSearch();
+            this.ttSearch = new System.Windows.Forms.ToolTip(this.components);
+            this.ttPlan = new System.Windows.Forms.ToolTip(this.components);
+            this.ttmap = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -166,6 +171,7 @@
             this.btnHome.TabIndex = 2;
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnHome.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnHome_MouseMove);
             // 
             // label1
             // 
@@ -201,6 +207,10 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1073, 423);
             this.panel3.TabIndex = 1;
+            // 
+            // ttHome
+            // 
+            this.ttHome.Popup += new System.Windows.Forms.PopupEventHandler(this.ttHome_Popup);
             // 
             // foundRoute1
             // 
@@ -274,7 +284,10 @@
         private Business_Logic_Layer.Planning planning;
 
         private FoundRoute foundRoute1;
-
+        private System.Windows.Forms.ToolTip ttHome;
+        private System.Windows.Forms.ToolTip ttSearch;
+        private System.Windows.Forms.ToolTip ttPlan;
+        private System.Windows.Forms.ToolTip ttmap;
     }
 }
 

@@ -30,14 +30,36 @@ namespace TravelPlan
         }
         private void calFirstDay_DateChanged(object sender, DateRangeEventArgs e)
         {
-            lblFirstDay.Text = calFirstDay.SelectionRange.End.ToShortDateString();
-            SubrtactDate();
+            if (calFirstDay.SelectionEnd < DateTime.Now)
+            {
+                MessageBox.Show("계획일정은 지난일이 될 수 없습니다.");
+                calFirstDay.SelectionEnd = DateTime.Now;
+            }
+            else
+            {
+                lblFirstDay.Text = calFirstDay.SelectionRange.End.ToShortDateString();
+                SubrtactDate();
+            }
+            if (calFirstDay.SelectionEnd>calLastDay.SelectionEnd)
+            {
+                calLastDay.SelectionEnd = calFirstDay.SelectionEnd;
+            }
+            
         }
 
         private void calLastDay_DateChanged(object sender, DateRangeEventArgs e)
         {
-            lblLastDay.Text = calLastDay.SelectionEnd.ToShortDateString();
-            SubrtactDate();
+            if (calLastDay.SelectionEnd < calFirstDay.SelectionEnd)
+            {
+                MessageBox.Show("도착일이 시작일보다 작을 수 없습니다");
+                calLastDay.SelectionEnd = calFirstDay.SelectionEnd;
+            }
+            else
+            {
+                lblLastDay.Text = calLastDay.SelectionEnd.ToShortDateString();
+                SubrtactDate();
+            }
+            
         }
     }
 }

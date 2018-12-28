@@ -1,6 +1,6 @@
 ﻿namespace TravelPlan.Business_Logic_Layer
 {
-    partial class CompletePlan
+    partial class PlanApp
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -28,32 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // vScrollBar1
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(659, 338);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.vScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScrollBar1.Location = new System.Drawing.Point(971, 0);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(17, 381);
+            this.vScrollBar1.TabIndex = 0;
             // 
-            // CompletePlan
+            // PlanApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Location = new System.Drawing.Point(115, 54);
-            this.Name = "CompletePlan";
-            this.Size = new System.Drawing.Size(659, 338);
-            this.Load += new System.EventHandler(this.CompletePlan_Load);
+            this.Controls.Add(this.vScrollBar1);
+            this.Name = "PlanApp";
+            this.Size = new System.Drawing.Size(988, 381);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }

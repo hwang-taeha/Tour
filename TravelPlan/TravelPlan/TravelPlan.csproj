@@ -88,6 +88,12 @@
     <Compile Include="Business Logic Layer\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business Logic Layer\PlanApp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Business Logic Layer\PlanApp.Designer.cs">
+      <DependentUpon>PlanApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business Logic Layer\PlanCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +190,12 @@
     <EmbeddedResource Include="Business Logic Layer\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\FrmPlusPlan.resx">
+      <DependentUpon>FrmPlusPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business Logic Layer\PlanApp.resx">
+      <DependentUpon>PlanApp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business Logic Layer\PlanCheck.resx">
       <DependentUpon>PlanCheck.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,7 +256,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Planner.mdf">

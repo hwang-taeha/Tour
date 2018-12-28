@@ -95,14 +95,14 @@ namespace TravelPlan.Business_Logic_Layer
         {
             PlannerDAO plannerDAO = PlannerDAO.getInstance();
 
-            foreach (var item in Form1.DayPlan)
+            for (int i = 0; i < Form1.DayPlan.Count; i++)
             {
-                for (int i = 0; i < item.Count; i++)
+                for (int j = 0; j < Form1.DayPlan[i].Count; i++)
                 {
-                    Planner plan = new Planner(i+1, item[i].Name, item[i].MapX, item[i].MapY, item[i].Loc, item[i].Tel, item[i].Image);
+                    Planner plan = new Planner(i + 1, Form1.DayPlan[i][j].Name, Form1.DayPlan[i][j].MapX, Form1.DayPlan[i][j].MapY, Form1.DayPlan[i][j].Loc, Form1.DayPlan[i][j].Tel, Form1.DayPlan[i][j].Image);
                     plannerDAO.InsertPlanner(plan);
                 }
-            }
+            } 
             //Form1.DayPlan.Clear();
             //Form1.TempPlan.Clear();
             MessageBox.Show("저장되었습니다");
