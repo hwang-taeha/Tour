@@ -15,7 +15,7 @@ namespace TravelPlan
 {
     public partial class DBschedule : UserControl
     {
-        List<Planner> planners = new List<Planner>();
+        List<Planner> plannerss = new List<Planner>();
         ImageList imageList = new ImageList();
         
         public DBschedule()
@@ -25,9 +25,9 @@ namespace TravelPlan
             PlannerDAO plannerDAO = PlannerDAO.getInstance();
 
 
-            planners = plannerDAO.SelectPlanner();
+            plannerss = plannerDAO.SelectPlanner();
 
-            foreach (var item in planners)
+            foreach (var item in plannerss)
             {
                 WebRequest req = WebRequest.Create(item.Image);
                 WebResponse resp = req.GetResponse();
@@ -41,7 +41,7 @@ namespace TravelPlan
             listView1.SmallImageList = imageList;
             listView1.View = View.SmallIcon;
             List<string[]> strArray = new List<string[]>();
-            foreach (var item in planners)
+            foreach (var item in plannerss)
             {
                 strArray.Add(new string[] {item.Day+"일" ,item.Name });
             }

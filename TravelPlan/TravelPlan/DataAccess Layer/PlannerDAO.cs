@@ -5,13 +5,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TravelPlan
 {
     class PlannerDAO : IPlanner
     {
         private DBConnection con;
-
+        
         private static PlannerDAO pd;
 
         private PlannerDAO() { }
@@ -23,6 +24,8 @@ namespace TravelPlan
                 pd = new PlannerDAO();
             }
             return pd;
+
+            
         }
 
         public List<Planner> SelectPlanner()
